@@ -1,0 +1,71 @@
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" title="style01.css" media="screen" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<title>Michelle's L2J Dropcalc</title>
+</head>
+<body>
+<table width="100%" height="100%" border="0" class="back1" cellpadding="0" cellspacing="0"><tr><td>
+	<table width="100%" height="100%" border="0" class="back2" cellpadding="0" cellspacing="0"><tr><td valign="top">
+		<table width="220" border="0" cellpadding="0" cellspacing="0"><tr><td><img src="simages/blank.gif" width="1" height="160"></td></tr><tr><td>
+			<ol>
+			<li><strong><a href="index.htm" class="mainmenu"> Home</a></strong></li>
+			<li><strong><a href="overv.htm" class="mainmenu"> Overview</a></strong></li>
+			<li><strong><a href="feat.htm" class="mainmenu"> Features</a></strong></li>
+			<li><strong><a href="setup.htm" class="mainmenu"> Initial Setup</a></strong></li>
+			<li><strong><a href="setup2.htm" class="mainmenu"> Setup Options - Dropcalc Settings</a></strong></li>
+			<li><strong><a href="setup3.htm" class="mainmenu"> Setup Options - Technical Settings</a></strong></li>
+			<li><strong><a href="setup4.htm" class="mainmenu"> Setup Options - Cross Gameserver Settings</a></strong></li>
+			<li><strong><a href="updating.htm" class="mainmenu"> Updating</a></strong></li>
+			<li><strong><a href="telnet.htm" class="mainmenu"> Telnet System</a></strong></li>
+			<li><strong><a href="chat.htm" class="mainmenu"> Chat System</a></strong></li>
+			<li><strong><a href="dbmain.htm" class="mainmenu"> Database Compare</a></strong></li>
+			<li><strong><a href="skin.htm" class="mainmenu"> Changing the skin</a></strong></li>
+			<li><strong><a href="automation.htm" class="mainmenu"> Automated systems</a></strong></li>
+			<li><strong><a href="routing.htm" class="mainmenu"> Routing traffic</a></strong></li>
+			<hr>
+			<center><p class="main"><strong>GM Talkthrough</strong></p></center>
+			<li><strong><a href="talk1.htm" class="mainmenu"> Logon Page</a></strong></li>
+			<li><strong><a href="talk2.htm" class="mainmenu"> Search Basics</a></strong></li>
+			<li><strong><a href="talk3.htm" class="mainmenu"> First Menu</a></strong></li>
+			<li><strong><a href="talk4.htm" class="mainmenu"> Server Tools</a></strong></li>
+			<li><strong><a href="talk5.htm" class="mainmenu"> Log and Console files</a></strong></li>
+			<li><strong><a href="talk6.htm" class="mainmenu"> Item Search</a></strong></li>
+			<li><strong><a href="talk7.htm" class="mainmenu"> Character Editing</a></strong></li>
+			<li><strong><a href="talk8.htm" class="mainmenu"> Mob Searches</a></strong></li>
+			<li><strong><a href="talk9.htm" class="mainmenu"> Account Adjustment</a></strong></li>
+			<li><strong><a href="talk10.htm" class="mainmenu"> Server Statistics</a></strong></li>
+			<li><strong><a href="talk11.htm" class="mainmenu"> Shops and Pets</a></strong></li>
+			<li><strong><a href="talk12.htm" class="mainmenu"> Database Utils</a></strong></li>
+			<li><strong><a href="talk13.htm" class="mainmenu"> Recipe Calculator</a></strong></li>
+			<hr>
+			<li><strong><a href="techt.htm" class="mainmenu"> Tech Talk</a></strong></li>
+			<li><strong><a href="quest1.htm" class="mainmenu"> Simple Quest Creation Guide</a></strong></li>
+			<li><strong><a href="statement.htm" class="mainmenu"> Statement of Liability</a></strong></li>
+			</ol>
+		</td></tr></table>
+		</td><td width="100%" valign="top"><img src="simages/blank.gif" width="1" height="100">
+		<h2 class="dropmain">Routing - Network basics</h2>
+		<table border="0" cellspacing="0" cellpadding="0"><tr><td>
+		<p class="main"><img src="router.bmp" alt="" width="216" height="289" border="0" align="right">How does routing work?</p>	
+		<p class="main">Routing works failry simply.  Assume that PC 1 is the gamesserver, and PC 2 is a PC that is playing the game.  YOu also have another machine which is in the Internet that wants to connect to the gameserver.</p>
+		<p class="main">For the machine which is inside the network, this is straightforward.  It connects to PC 1 simply by using the "internal address" which is the 192.168.0.2 number.</p>
+		<p class="main">For the machines that are "outside" the network, however, things get a little more complicated.  To start with, the outside machine talks with the address 58.123.65.72 ... or rather, the IP address that your ISP has given you.  The router then has to make the decision as to what to do with the information.</p>
+		<p class="main">The router can't make this decision on its own.  You have to tell it the "routes" that you want it to take.  Each type of traffic has a "port number" associated with it.  Classic numbers are 80 for http and 21 for ftp.  Your gameserver is probably talking on port 7777 and your logon server on port 2106.  Perhaps less known is the MySQL port, which is 3306.  You don't have to worry about routing the traffic from inside back to outside again; the router keeps a note of what traffic it has sent where, and it will be able to send the response back to where it came from.</p>
+		<p class="main">So what do you do with these port numbers?  You tell the router that a particular port number is to be directed to an internal number.  If, for example, someone from outside wanted to play the game on your internal gameserver, then in the example shown, the router would have to be told to redirect ports 7777 and 2106, to IP address 192.168.0.2</p>
+		<p class="main">If you had something a little more complicated, however, and your web server was outside the network, then you would have to open a few more ports ... you would have to tell the router to open the MySQL port (3306) the gameserver port (7777) the logon server port (2106) and any telnet ports you have defined ... and point them at the internal gameserver address as well, 192.168.0.2 in this example.</p>
+		<p class="main">To take this one step further, say that PC 1 had the logon server and gameserver, and PC 2 contained the MySQL database.  In that case, the MySQL port would have to be redirected to 192.168.0.3 and the other ports would have to be redirected to 192.1680.2</p>
+		<p class="main">Easy when you know how!</p>
+		</td></tr></table>
+		<p class="main">&nbsp;</p>
+		<center><img src="../simages/bg_foot.gif"></center>
+		
+	</td></tr></table>
+</td><td><img src="../simages/blank.gif" width="20" height="1"></td></tr></table>
+<!-- End Content -->
+</body>
+</html>

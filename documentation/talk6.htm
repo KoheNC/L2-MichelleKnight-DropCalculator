@@ -1,0 +1,73 @@
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" title="style01.css" media="screen" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<title>Michelle's L2J Dropcalc</title>
+</head>
+<body>
+<table width="100%" height="100%" border="0" class="back1" cellpadding="0" cellspacing="0"><tr><td>
+	<table width="100%" height="100%" border="0" class="back2" cellpadding="0" cellspacing="0"><tr><td valign="top">
+		<table width="220" border="0" cellpadding="0" cellspacing="0"><tr><td><img src="simages/blank.gif" width="1" height="160"></td></tr><tr><td>
+			<ol>
+			<li><strong><a href="index.htm" class="mainmenu"> Home</a></strong></li>
+			<li><strong><a href="overv.htm" class="mainmenu"> Overview</a></strong></li>
+			<li><strong><a href="feat.htm" class="mainmenu"> Features</a></strong></li>
+			<li><strong><a href="setup.htm" class="mainmenu"> Initial Setup</a></strong></li>
+			<li><strong><a href="setup2.htm" class="mainmenu"> Setup Options - Dropcalc Settings</a></strong></li>
+			<li><strong><a href="setup3.htm" class="mainmenu"> Setup Options - Technical Settings</a></strong></li>
+			<li><strong><a href="setup4.htm" class="mainmenu"> Setup Options - Cross Gameserver Settings</a></strong></li>
+			<li><strong><a href="updating.htm" class="mainmenu"> Updating</a></strong></li>
+			<li><strong><a href="telnet.htm" class="mainmenu"> Telnet System</a></strong></li>
+			<li><strong><a href="chat.htm" class="mainmenu"> Chat System</a></strong></li>
+			<li><strong><a href="dbmain.htm" class="mainmenu"> Database Compare</a></strong></li>
+			<li><strong><a href="skin.htm" class="mainmenu"> Changing the skin</a></strong></li>
+			<li><strong><a href="automation.htm" class="mainmenu"> Automated systems</a></strong></li>
+			<li><strong><a href="routing.htm" class="mainmenu"> Routing traffic</a></strong></li>
+			<hr>
+			<center><p class="main"><strong>GM Talkthrough</strong></p></center>
+			<li><strong><a href="talk1.htm" class="mainmenu"> Logon Page</a></strong></li>
+			<li><strong><a href="talk2.htm" class="mainmenu"> Search Basics</a></strong></li>
+			<li><strong><a href="talk3.htm" class="mainmenu"> First Menu</a></strong></li>
+			<li><strong><a href="talk4.htm" class="mainmenu"> Server Tools</a></strong></li>
+			<li><strong><a href="talk5.htm" class="mainmenu"> Log and Console files</a></strong></li>
+			<li><strong><a href="talk6.htm" class="mainmenu"> Item Search</a></strong></li>
+			<li><strong><a href="talk7.htm" class="mainmenu"> Character Editing</a></strong></li>
+			<li><strong><a href="talk8.htm" class="mainmenu"> Mob Searches</a></strong></li>
+			<li><strong><a href="talk9.htm" class="mainmenu"> Account Adjustment</a></strong></li>
+			<li><strong><a href="talk10.htm" class="mainmenu"> Server Statistics</a></strong></li>
+			<li><strong><a href="talk11.htm" class="mainmenu"> Shops and Pets</a></strong></li>
+			<li><strong><a href="talk12.htm" class="mainmenu"> Database Utils</a></strong></li>
+			<li><strong><a href="talk13.htm" class="mainmenu"> Recipe Calculator</a></strong></li>
+			<hr>
+			<li><strong><a href="techt.htm" class="mainmenu"> Tech Talk</a></strong></li>
+			<li><strong><a href="quest1.htm" class="mainmenu"> Simple Quest Creation Guide</a></strong></li>
+			<li><strong><a href="statement.htm" class="mainmenu"> Statement of Liability</a></strong></li>
+			</ol>
+		</td></tr></table>
+		</td><td width="100%" valign="top"><img src="simages/blank.gif" width="1" height="100">
+		<h2 class="dropmain">GM Talkthrough - Item Searches</h2>
+		<table border="0" cellspacing="0" cellpadding="0"><tr><td><p class="main"><img src="item1.jpg" alt="" width="500" height="307" border="0" align="right">This is an example of the details on a single item.  Note that the GM has a button at the top which allows them to see the list for creatures who drop or spoil the item, but are not spawned in the game.  Note that teh shops bar will only appear if there are shops at which the item is currently being sold.  If no shops sell the item, the bar won't show to save room.</p>
+		<p class="main">There is also another button above the icons, and it appears for GM's/admins only.  That button is what allows the GM or admin (depending on what levels have been set) to adjust the drop rates and percentages.</p>
+		</td></tr></table>
+		<table border="0" cellspacing="0" cellpadding="0"><tr><td>
+		<p class="main"><img src="item2.jpg" alt="" width="500" height="524" border="0" align="right">This shows the adjustment screen for a drop or spoil of an item.  Being web based, you can only adjust one figure at a time.</p>
+		<p class="main">For each mob listed, you can adjust the min and maximum drop, as well as the percentage chance of dropping.  Note well, that the drops shown here are the complete drops for the item.  It doesn't matter if the mobs are spawned or not; you get the whole picture.</p>
+		<p class="main">The clever bit, however, is that you can adjust the drop chance percentages in one of two forms ... either the standard 1x% chance, or you can give the chance at the rate which is adjusted for your server.</p>
+		<p class="main">It is at this point that making sure that the percentages in the drop calcs config.php file match the changes in your gameserver config files, otherwise it will get the reverse calculation wrong.</p>
+		<p class="main">You also have to note that if you change the percentage chance of a drop, then the list will readjust itself accordingly on the refresh, so the item you changed will probably appear somewhere else in the list after the refresh.</p>
+		<p class="main">There is also the DEL button.  This will just assume you know what you are doing, and will delete the drop/spoil when you press it, so be warned.</p>
+		<p class="main">Adding another drop or spoil couldn't be easier than using the utility at the top.  Just give it the details and hit the button, and that's it ... drop or spoil added.  The two drop down boxes allow you to specify whether it is a drop or a spoil, and whether the percentage chance is the 1xstandard or the adjusted server%.  The server% is the default.</p>
+		<p class="main">NOTE - Any changes made to the drops and spoils won't take effect until after a server restart.</p>
+		</td></tr></table>
+		<p class="main">&nbsp;</p>
+		<center><img src="../simages/bg_foot.gif"></center>
+		
+	</td></tr></table>
+</td><td><img src="../simages/blank.gif" width="20" height="1"></td></tr></table>
+<!-- End Content -->
+</body>
+</html>

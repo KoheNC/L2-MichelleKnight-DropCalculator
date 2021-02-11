@@ -1,0 +1,69 @@
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" title="style01.css" media="screen" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<title>Michelle's L2J Dropcalc</title>
+</head>
+<body>
+<table width="100%" height="100%" border="0" class="back1" cellpadding="0" cellspacing="0"><tr><td>
+	<table width="100%" height="100%" border="0" class="back2" cellpadding="0" cellspacing="0"><tr><td valign="top">
+		<table width="220" border="0" cellpadding="0" cellspacing="0"><tr><td><img src="simages/blank.gif" width="1" height="160"></td></tr><tr><td>
+			<ol>
+			<li><strong><a href="index.htm" class="mainmenu"> Home</a></strong></li>
+			<li><strong><a href="overv.htm" class="mainmenu"> Overview</a></strong></li>
+			<li><strong><a href="feat.htm" class="mainmenu"> Features</a></strong></li>
+			<li><strong><a href="setup.htm" class="mainmenu"> Initial Setup</a></strong></li>
+			<li><strong><a href="setup2.htm" class="mainmenu"> Setup Options - Dropcalc Settings</a></strong></li>
+			<li><strong><a href="setup3.htm" class="mainmenu"> Setup Options - Technical Settings</a></strong></li>
+			<li><strong><a href="setup4.htm" class="mainmenu"> Setup Options - Cross Gameserver Settings</a></strong></li>
+			<li><strong><a href="updating.htm" class="mainmenu"> Updating</a></strong></li>
+			<li><strong><a href="telnet.htm" class="mainmenu"> Telnet System</a></strong></li>
+			<li><strong><a href="chat.htm" class="mainmenu"> Chat System</a></strong></li>
+			<li><strong><a href="dbmain.htm" class="mainmenu"> Database Compare</a></strong></li>
+			<li><strong><a href="skin.htm" class="mainmenu"> Changing the skin</a></strong></li>
+			<li><strong><a href="automation.htm" class="mainmenu"> Automated systems</a></strong></li>
+			<li><strong><a href="routing.htm" class="mainmenu"> Routing traffic</a></strong></li>
+			<hr>
+			<center><p class="main"><strong>GM Talkthrough</strong></p></center>
+			<li><strong><a href="talk1.htm" class="mainmenu"> Logon Page</a></strong></li>
+			<li><strong><a href="talk2.htm" class="mainmenu"> Search Basics</a></strong></li>
+			<li><strong><a href="talk3.htm" class="mainmenu"> First Menu</a></strong></li>
+			<li><strong><a href="talk4.htm" class="mainmenu"> Server Tools</a></strong></li>
+			<li><strong><a href="talk5.htm" class="mainmenu"> Log and Console files</a></strong></li>
+			<li><strong><a href="talk6.htm" class="mainmenu"> Item Search</a></strong></li>
+			<li><strong><a href="talk7.htm" class="mainmenu"> Character Editing</a></strong></li>
+			<li><strong><a href="talk8.htm" class="mainmenu"> Mob Searches</a></strong></li>
+			<li><strong><a href="talk9.htm" class="mainmenu"> Account Adjustment</a></strong></li>
+			<li><strong><a href="talk10.htm" class="mainmenu"> Server Statistics</a></strong></li>
+			<li><strong><a href="talk11.htm" class="mainmenu"> Shops and Pets</a></strong></li>
+			<li><strong><a href="talk12.htm" class="mainmenu"> Database Utils</a></strong></li>
+			<li><strong><a href="talk13.htm" class="mainmenu"> Recipe Calculator</a></strong></li>
+			<hr>
+			<li><strong><a href="techt.htm" class="mainmenu"> Tech Talk</a></strong></li>
+			<li><strong><a href="quest1.htm" class="mainmenu"> Simple Quest Creation Guide</a></strong></li>
+			<li><strong><a href="statement.htm" class="mainmenu"> Statement of Liability</a></strong></li>
+			</ol>
+		</td></tr></table>
+		</td><td width="100%" valign="top"><img src="simages/blank.gif" width="1" height="100">
+		<h2 class="dropmain">GM Talkthrough - Database Utilities</h2>
+		<table border="0" cellspacing="0" cellpadding="0"><tr><td>
+		<p class="main"><img src="dbu.jpg" alt="" width="500" height="483" border="0" align="right">The database utilities are what help you port your changes from one datapack revision, to another.  It works like this ...</p>
+		<p class="main">The first thing you do after installing a fresh datapack, is to take a reference point.  This is your starting position.  It is a copy of the key tables, like the spawnlist, the droplist, the shops, that sort of thing.  The tables that change and grow as your development of the server grows.</p>
+		<p class="main">Now you start playing the game, making your tweaks and all that stuff.  When you are ready to upgrade your entire datapack to a new one, you make a difference file.</p>
+		<p class="main">A difference file is when it takes a look at what you had when you started, and what you have mow.  It works out all the things that you added to, and removed from, the game while you were playing and developing.  At the same time, you backup the basic tables, the ones that are a state in time, like the accounts, the characters, the pets, and that sort of thing.</p>
+		<p class="main">Then, you can safely upgrade your gameserver datapack and when that is done, the new datapack becomes your new reference file; as it is the next starting point ... you then replay the difference file (which makes all the changes that you originally made) and restore the basic tables ... and you're good to go, just like you had made all those changes by hand again!</p>
+		<p class="main">Of course, there is a downside to this, which is processing power, and that is discussed more in the technical side of the documentation; but for the most part, the job's a good 'un :-)</p>
+		</td></tr></table>
+
+		<p class="main">&nbsp;</p>
+		<center><img src="../simages/bg_foot.gif"></center>
+		
+	</td></tr></table>
+</td><td><img src="../simages/blank.gif" width="20" height="1"></td></tr></table>
+<!-- End Content -->
+</body>
+</html>

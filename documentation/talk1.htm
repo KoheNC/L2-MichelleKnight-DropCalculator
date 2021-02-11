@@ -1,0 +1,75 @@
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" title="style01.css" media="screen" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<title>Michelle's L2J Dropcalc</title>
+</head>
+<body>
+<table width="100%" height="100%" border="0" class="back1" cellpadding="0" cellspacing="0"><tr><td>
+	<table width="100%" height="100%" border="0" class="back2" cellpadding="0" cellspacing="0"><tr><td valign="top">
+		<table width="220" border="0" cellpadding="0" cellspacing="0"><tr><td><img src="simages/blank.gif" width="1" height="160"></td></tr><tr><td>
+			<ol>
+			<li><strong><a href="index.htm" class="mainmenu"> Home</a></strong></li>
+			<li><strong><a href="overv.htm" class="mainmenu"> Overview</a></strong></li>
+			<li><strong><a href="feat.htm" class="mainmenu"> Features</a></strong></li>
+			<li><strong><a href="setup.htm" class="mainmenu"> Initial Setup</a></strong></li>
+			<li><strong><a href="setup2.htm" class="mainmenu"> Setup Options - Dropcalc Settings</a></strong></li>
+			<li><strong><a href="setup3.htm" class="mainmenu"> Setup Options - Technical Settings</a></strong></li>
+			<li><strong><a href="setup4.htm" class="mainmenu"> Setup Options - Cross Gameserver Settings</a></strong></li>
+			<li><strong><a href="updating.htm" class="mainmenu"> Updating</a></strong></li>
+			<li><strong><a href="telnet.htm" class="mainmenu"> Telnet System</a></strong></li>
+			<li><strong><a href="chat.htm" class="mainmenu"> Chat System</a></strong></li>
+			<li><strong><a href="dbmain.htm" class="mainmenu"> Database Compare</a></strong></li>
+			<li><strong><a href="skin.htm" class="mainmenu"> Changing the skin</a></strong></li>
+			<li><strong><a href="automation.htm" class="mainmenu"> Automated systems</a></strong></li>
+			<li><strong><a href="routing.htm" class="mainmenu"> Routing traffic</a></strong></li>
+			<hr>
+			<center><p class="main"><strong>GM Talkthrough</strong></p></center>
+			<li><strong><a href="talk1.htm" class="mainmenu"> Logon Page</a></strong></li>
+			<li><strong><a href="talk2.htm" class="mainmenu"> Search Basics</a></strong></li>
+			<li><strong><a href="talk3.htm" class="mainmenu"> First Menu</a></strong></li>
+			<li><strong><a href="talk4.htm" class="mainmenu"> Server Tools</a></strong></li>
+			<li><strong><a href="talk5.htm" class="mainmenu"> Log and Console files</a></strong></li>
+			<li><strong><a href="talk6.htm" class="mainmenu"> Item Search</a></strong></li>
+			<li><strong><a href="talk7.htm" class="mainmenu"> Character Editing</a></strong></li>
+			<li><strong><a href="talk8.htm" class="mainmenu"> Mob Searches</a></strong></li>
+			<li><strong><a href="talk9.htm" class="mainmenu"> Account Adjustment</a></strong></li>
+			<li><strong><a href="talk10.htm" class="mainmenu"> Server Statistics</a></strong></li>
+			<li><strong><a href="talk11.htm" class="mainmenu"> Shops and Pets</a></strong></li>
+			<li><strong><a href="talk12.htm" class="mainmenu"> Database Utils</a></strong></li>
+			<li><strong><a href="talk13.htm" class="mainmenu"> Recipe Calculator</a></strong></li>
+			<hr>
+			<li><strong><a href="techt.htm" class="mainmenu"> Tech Talk</a></strong></li>
+			<li><strong><a href="quest1.htm" class="mainmenu"> Simple Quest Creation Guide</a></strong></li>
+			<li><strong><a href="statement.htm" class="mainmenu"> Statement of Liability</a></strong></li>
+			</ol>
+		</td></tr></table>
+		</td><td width="100%" valign="top"><img src="simages/blank.gif" width="1" height="100">
+		<h2 class="dropmain">GM Talkthrough - Initial Page</h2>
+		<h2 class="dochead">Quick hints and tips</h2>
+		<ol>
+		<li><p class="main">If dealing with a large list of pets, shops, players or anything, use your browsers FIND function.</p></li>
+		</ol>
+		<h2 class="dochead">What are the options here?</h2>	
+		<p class="main"><img src="m1.jpg" alt="" width="206" height="426" border="0" align="right">Not a lot, to be honest.  The user will see the basic logon section, and if guest logon and register have been enabled, they will see the buttons for those as well.</p>
+		<p class="main">The dropcalc comes with a basic newbie guide, a simple FAQ and also a guide to connecting to L2J servers using the standard hostfile editing method.  These were included as standard to help relieve some of the burden on GM's and also to help people get the most out of the game.  If you encounter someone who is a total newbie, you can refer them to these pages to relieve the load on your GM's.  If you are running patches which automatically make the changes, then it is a no-brainer to change the basic html that is in the PHP files that deliver these pages.</p>
+		<p class="main">It really is an effort saver.  Just direct them to the drop calc.  Oh, and also, once logged on, the system will show the number of on-line users in the page title, so as you wander around the drop calc, that number is always visible to you ... makes it useful if you are watching multiple servers as these numbers show up in the tab.</p>
+		<p class="main">While we're at it, a quick word or two about running multiple browser sessions.  The token that appears after logon is tied to the account logon, which means if you logon again on another browser session, the token will change and it will kick out your previous session.  The best trick is to right click on a link (the who's online, for example) and tell it to open in a new page.</p>
+		<p class="main">Multiple tabs can save your skin if you are running an event, so don't underestimate them, or the need to get the hang of this trick.</p>
+		<p class="main">If you are running multiple gameservers and have different drop calcs for the different servers, then this is where you need to box clever, as logging on to a different gameservers dropcalc will, again, kill the previous sessions token. (because everything is running from the same logon server)  You need to use the same trick as above, but slightly differently.  Say we've logged on to http://mygamesite/Lithra/index.php and have authenticated.  Right click on the Whos Online and start a new tab or window for that server.  Now literally change the server name in the address bar, to one of the other servers dropcalcs ... http://mygamesite/Seighardt/index.php ... leave whatever user and token name information you have, intact.  The second session is working off your current logon, because all the servers are using the same logon server.</p>
+		<p class="main">When in one dropcalc window, you hit the logoff button, it wipes the token ID in the logon server, so any other browser sessions you have open, will then fail.</p>
+		<p class="main">Practice, practice, practice.</p>
+		<p class="dropmain">&nbsp;</p>
+	
+		<p class="main">&nbsp;</p>
+		<center><img src="../simages/bg_foot.gif"></center>
+		
+	</td></tr></table>
+</td><td><img src="../simages/blank.gif" width="20" height="1"></td></tr></table>
+<!-- End Content -->
+</body>
+</html>

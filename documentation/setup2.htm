@@ -1,0 +1,86 @@
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" title="style01.css" media="screen" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<title>Michelle's L2J Dropcalc</title>
+</head>
+<body>
+<table width="100%" height="100%" border="0" class="back1" cellpadding="0" cellspacing="0"><tr><td>
+	<table width="100%" height="100%" border="0" class="back2" cellpadding="0" cellspacing="0"><tr><td valign="top">
+		<table width="220" border="0" cellpadding="0" cellspacing="0"><tr><td><img src="simages/blank.gif" width="1" height="160"></td></tr><tr><td>
+			<ol>
+			<li><strong><a href="index.htm" class="mainmenu"> Home</a></strong></li>
+			<li><strong><a href="overv.htm" class="mainmenu"> Overview</a></strong></li>
+			<li><strong><a href="feat.htm" class="mainmenu"> Features</a></strong></li>
+			<li><strong><a href="setup.htm" class="mainmenu"> Initial Setup</a></strong></li>
+			<li><strong><a href="setup2.htm" class="mainmenu"> Setup Options - Dropcalc Settings</a></strong></li>
+			<li><strong><a href="setup3.htm" class="mainmenu"> Setup Options - Technical Settings</a></strong></li>
+			<li><strong><a href="setup4.htm" class="mainmenu"> Setup Options - Cross Gameserver Settings</a></strong></li>
+			<li><strong><a href="updating.htm" class="mainmenu"> Updating</a></strong></li>
+			<li><strong><a href="telnet.htm" class="mainmenu"> Telnet System</a></strong></li>
+			<li><strong><a href="chat.htm" class="mainmenu"> Chat System</a></strong></li>
+			<li><strong><a href="dbmain.htm" class="mainmenu"> Database Compare</a></strong></li>
+			<li><strong><a href="skin.htm" class="mainmenu"> Changing the skin</a></strong></li>
+			<li><strong><a href="automation.htm" class="mainmenu"> Automated systems</a></strong></li>
+			<li><strong><a href="routing.htm" class="mainmenu"> Routing traffic</a></strong></li>
+			<hr>
+			<center><p class="main"><strong>GM Talkthrough</strong></p></center>
+			<li><strong><a href="talk1.htm" class="mainmenu"> Logon Page</a></strong></li>
+			<li><strong><a href="talk2.htm" class="mainmenu"> Search Basics</a></strong></li>
+			<li><strong><a href="talk3.htm" class="mainmenu"> First Menu</a></strong></li>
+			<li><strong><a href="talk4.htm" class="mainmenu"> Server Tools</a></strong></li>
+			<li><strong><a href="talk5.htm" class="mainmenu"> Log and Console files</a></strong></li>
+			<li><strong><a href="talk6.htm" class="mainmenu"> Item Search</a></strong></li>
+			<li><strong><a href="talk7.htm" class="mainmenu"> Character Editing</a></strong></li>
+			<li><strong><a href="talk8.htm" class="mainmenu"> Mob Searches</a></strong></li>
+			<li><strong><a href="talk9.htm" class="mainmenu"> Account Adjustment</a></strong></li>
+			<li><strong><a href="talk10.htm" class="mainmenu"> Server Statistics</a></strong></li>
+			<li><strong><a href="talk11.htm" class="mainmenu"> Shops and Pets</a></strong></li>
+			<li><strong><a href="talk12.htm" class="mainmenu"> Database Utils</a></strong></li>
+			<li><strong><a href="talk13.htm" class="mainmenu"> Recipe Calculator</a></strong></li>
+			<hr>
+			<li><strong><a href="techt.htm" class="mainmenu"> Tech Talk</a></strong></li>
+			<li><strong><a href="quest1.htm" class="mainmenu"> Simple Quest Creation Guide</a></strong></li>
+			<li><strong><a href="statement.htm" class="mainmenu"> Statement of Liability</a></strong></li>
+			</ol>
+		</td></tr></table>
+		</td><td width="100%" valign="top"><img src="simages/blank.gif" width="1" height="100">
+		<h2 class="dropmain">Detailed Setup</h2>
+		<h2 class="dochead">Dropcalc Settings</h2>	
+		<p class="main">The config.php file was becoming unreadable, so a separate database table was created for this purpose.  The system will detect the existance of the table, and if it isn't there, it will create it with default options.  It is highly recommended that you review these options as soon as possible, and become familiar with them, as they dictate how the dropcalc behaves.</p>
+		<p class="main">Be warned - that the dropcalc has erred on the balance of giving you power.  It is not a nanny system, and relies on your understanding of the various options to dictate its behaviour.</p>
+		<table><tr><td><p class="main"><img src="set1.jpg" alt="" width="352" height="174" border="0" align="left">The first option determines whether the user is allowed to register a game account via the dropcalc.  If you decide not to use the dropcalcs own registration system, then you need to make sure that whatever system you use, does populate the knightdrop table with at least the name and access level fields, or else the dropcalc will have problems if you are using the security features.</p>
+		<p class="main">A further note on the registration system is that it can prevent people who are banned, from registering an account, but see the options later on for that.</p>
+		<p class="main">Allow Guest Logon does what it says.  Anyone pressing the button will be allowed to log on to the system with limited privileges and use of the system.</p>
+		<p class="main">Allow Guest Map Access determines whether guests are able to see the maps and locations of mobs.  Obviously, if you are restricting mob location access to your population, you will need to set this to off, otherwise they can just log in as a guest and see where your mobs are!</p>
+		<p class="main">Translate failed logon to guest - rather than failing a logon with an error message, a failed logon will automatically be logged on as if they had hit the guest button.  Obviously, if you don't allow the guest button to be available, then set this to off.</p>
+		<p class="main">The last option explains itself. Set to off if you don't want guests to see the players in clans.  This is separate from the paranoia setting, and if you have set paranoia to high, then set this to off.</p>
+		</td></tr></table>
+		<table><tr><td><p class="main"><img src="set2.jpg" alt="" width="427" height="220" border="0" align="left">The Allow All Users option does not apply to guests.  It applies to anyone who is logged in to the system.  The dropcalc does allow access to its key features by a time system, but this will override that.  It won't change it, though, so if you decide to have an open week where anyone can see the mob locations, then you can set this to yes, and when you unset it, things return to normal.</p>
+		<p class="main">The Give Any New User Rights area requires a bit of thought.  This determines whether any newly registered user, gets unlimited access rights to the features listed.  It is useful if yo uadopt teh aproach that you want to give your population the maximum functionality, but you can later widthdraw an acounts privileges as a punishment.</p></td></tr></table>
+		<table><tr><td><p class="main"><img src="set3.jpg" alt="" width="439" height="375" border="0" align="left">This section was a bit of inspiration that hit me one day.  It dictates that access to the dropcalcs special festures, can be determined by in-game events.</p>
+		<p class="main">As an exmple, I could take the party hat (item ID 8557) and can give the ability for any account who has a character that has that item, to access one of the features of the dropcalc.  As well as merely having that item, it can be restricted to that they have to have it in their inventory, or even that they have to be wearing it!  It can also be further restricted that they have to be on-line at the time ... imaging forcing a character to be on-line, wearing a party hat, to be able to see mob locations!</p>
+		<p class="main">The on-line restriction doesn't work with character changing, as the character has to be off-line to be able to change the characters appearance.</p>
+		</td></tr></table>
+		<table><tr><td><p class="main"><img src="set4.jpg" alt="" width="315" height="213" border="0" align="left">This section controls the "Top Players" list.  The top 10, 50 or 100 players can be shown, and various columns containing character details, can be hidden from view.  Those columns that are shown, however, have a sort ability so that if all the columns were shown, the user would have the ability to sort the list by Pk, PvP or Karma.</p>
+		<p class="main">The last option in this table determines whether or not GM characters are shown as part of the top players list.</p>
+		</td></tr></table>
+		<table><tr><td><p class="main"><img src="set5.jpg" alt="" width="320" height="358" border="0" align="left">The Emergency Teleport was a method introduced to help players get around the bug that happens now and then.  Occasionally, when a player logs on, and then selects their character, the game will suddenly crash and an admin has to go in the database and reset their position.  The Emergency Teleport feature allows them to go in to the dropcalc and press the button.  It will send their character back, automatically, to the characters starter town.  The button appears under the thumbnail map.</p>
+		<p class="main">The GM appearance setting refers to how GM's appear in the "Who's Online" when they are in the game.  The standard is that they appear green, while everyone else appears blue.  YOu can set this to blue, so that they appear as normal players, or invisible, so that they don't appear in the list at all.  Note, however, that GM's are not affected by this and they will always see colour differences.</p>
+		<p class="main">Detail restrictions alters the amout of detail that players can see when they use the dropcalc.  Low means that practically everything is visible.  Medium tightens these up a bit and stops players seeing the details on accounts other than their own, other characters locations in the game.  High level restricts the visibility of certain characters atributes, and dissables the clan-item-find feature and recipe access features.</p>
+		<p class="main">Prevent Cross Clan stops players from seeing the inventories of character not owned by them, but are in the same clans as them.  The recipe calculator will still work, however, and will report items held by other clan players.</p>
+		<p class="main">Maximum recipe depth can be set by the administrator, to limit the depth to which the recipe calculator will recurse items that are needed/required for creating a particular recipe.</p>
+		<p class="main">Blue and green drop chance levels are the points in percentages, in which the dropcalc will change the chance colour from red, to blue and then green.</p>
+		</td></tr></table>
+		
+		<center><img src="../simages/bg_foot.gif"></center>
+		
+	</td></tr></table>
+</td><td><img src="../simages/blank.gif" width="20" height="1"></td></tr></table>
+<!-- End Content -->
+</body>
+</html>

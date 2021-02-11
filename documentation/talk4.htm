@@ -1,0 +1,92 @@
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" title="style01.css" media="screen" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<title>Michelle's L2J Dropcalc</title>
+</head>
+<body>
+<table width="100%" height="100%" border="0" class="back1" cellpadding="0" cellspacing="0"><tr><td>
+	<table width="100%" height="100%" border="0" class="back2" cellpadding="0" cellspacing="0"><tr><td valign="top">
+		<table width="220" border="0" cellpadding="0" cellspacing="0"><tr><td><img src="simages/blank.gif" width="1" height="160"></td></tr><tr><td>
+			<ol>
+			<li><strong><a href="index.htm" class="mainmenu"> Home</a></strong></li>
+			<li><strong><a href="overv.htm" class="mainmenu"> Overview</a></strong></li>
+			<li><strong><a href="feat.htm" class="mainmenu"> Features</a></strong></li>
+			<li><strong><a href="setup.htm" class="mainmenu"> Initial Setup</a></strong></li>
+			<li><strong><a href="setup2.htm" class="mainmenu"> Setup Options - Dropcalc Settings</a></strong></li>
+			<li><strong><a href="setup3.htm" class="mainmenu"> Setup Options - Technical Settings</a></strong></li>
+			<li><strong><a href="setup4.htm" class="mainmenu"> Setup Options - Cross Gameserver Settings</a></strong></li>
+			<li><strong><a href="updating.htm" class="mainmenu"> Updating</a></strong></li>
+			<li><strong><a href="telnet.htm" class="mainmenu"> Telnet System</a></strong></li>
+			<li><strong><a href="chat.htm" class="mainmenu"> Chat System</a></strong></li>
+			<li><strong><a href="dbmain.htm" class="mainmenu"> Database Compare</a></strong></li>
+			<li><strong><a href="skin.htm" class="mainmenu"> Changing the skin</a></strong></li>
+			<li><strong><a href="automation.htm" class="mainmenu"> Automated systems</a></strong></li>
+			<li><strong><a href="routing.htm" class="mainmenu"> Routing traffic</a></strong></li>
+			<hr>
+			<center><p class="main"><strong>GM Talkthrough</strong></p></center>
+			<li><strong><a href="talk1.htm" class="mainmenu"> Logon Page</a></strong></li>
+			<li><strong><a href="talk2.htm" class="mainmenu"> Search Basics</a></strong></li>
+			<li><strong><a href="talk3.htm" class="mainmenu"> First Menu</a></strong></li>
+			<li><strong><a href="talk4.htm" class="mainmenu"> Server Tools</a></strong></li>
+			<li><strong><a href="talk5.htm" class="mainmenu"> Log and Console files</a></strong></li>
+			<li><strong><a href="talk6.htm" class="mainmenu"> Item Search</a></strong></li>
+			<li><strong><a href="talk7.htm" class="mainmenu"> Character Editing</a></strong></li>
+			<li><strong><a href="talk8.htm" class="mainmenu"> Mob Searches</a></strong></li>
+			<li><strong><a href="talk9.htm" class="mainmenu"> Account Adjustment</a></strong></li>
+			<li><strong><a href="talk10.htm" class="mainmenu"> Server Statistics</a></strong></li>
+			<li><strong><a href="talk11.htm" class="mainmenu"> Shops and Pets</a></strong></li>
+			<li><strong><a href="talk12.htm" class="mainmenu"> Database Utils</a></strong></li>
+			<li><strong><a href="talk13.htm" class="mainmenu"> Recipe Calculator</a></strong></li>
+			<hr>
+			<li><strong><a href="techt.htm" class="mainmenu"> Tech Talk</a></strong></li>
+			<li><strong><a href="quest1.htm" class="mainmenu"> Simple Quest Creation Guide</a></strong></li>
+			<li><strong><a href="statement.htm" class="mainmenu"> Statement of Liability</a></strong></li>
+			</ol>
+		</td></tr></table>
+		</td><td width="100%" valign="top"><img src="simages/blank.gif" width="1" height="100">
+		<h2 class="dropmain">GM Talkthrough - Server Tools</h2>
+		<p class="main">The server tools are a collection of various buttons that perform various tasks to do with server maintenance and function. They vary in what they do and for the most part are admin only.  Some are also password protected, but the basics are ...</p>
+<h2 class="dochead"><img src="two6.jpg" alt="" width="400" height="300" border="0" align="right">Reboot 1 minute - Reboot 3 minutes - Reboot 10 minutes - Abort Reboot</h2>
+<p class="main">These control the rebooting of the server.  The labels are prety obvious, and they do what they say on the tin.  The command is issued to the gameserver by telnet, so after issuing a command, check the console to see if the gameserver has actioned it.  This option can be carried out by any Gm with the reboot server access level.</p>
+<h2 class="dochead">Freeform Telnet</h2>
+<p class="main">Some telnet commands were not issued as buttons in case of accidental clicking.  If you want to use a command like shutdown, then this is where you can issue it to the gameserver.  In fact, any telnet command can be issued by this option.</p>
+<h2 class="dochead">Purge Thread Pools - Extreload all - Extinit All - Extunload All</h2>
+<p class="main">All to do with gameserver control.</p>
+<h2 class="dochead">Import Logon Accounts</h2>
+<p class="main">This is usually only used on initial set up of the drop calc on the logon server.  It basically imports all the user names from the accounts table and enters it in to the knightdrop table.  Note that the import process blanks all the map and recipe calculator details, so these may need to be set manually.</p>
+<h2 class="dochead">Check Database - Clean Up Database</h2>
+<p class="main">These options check the validity of the database structure.  Check does a quick check, but takes no action.  Clean immediatley cleans up all discrepancies found, and gives a report of the status of the databases after the clean.  Basically, any pets without callers are erased, any callers without pets are wiped, characters not linked to accounts are wiped (including inventories, etc.) and similar.  If there are any outstanding pet problems, or things of that nature, then resolve them before cleaning up the database, or data deletion will occur.  If there is a clan without members, then that will get erased also and its warehouse wiped.</p>
+<p class="main">The last thing to mention is that if you are running multiple gameservers (and dropcalcs) off the one logon server, then if an account had a character on server 1 but nothing on server 2, then running this on server 2 would say, "Ah, this account has no characters ... delete ... delete ..." and that would kiss goodbye to the account.  That is where safe mode comes in ...</p>
+<p class="main">Safe mode means that it won't delete accounts if they don't have characters on them.  When this is the case, the top option shows up green instead of white, so you know it won't delete the accounts.</p>
+<h2 class="dochead">1 Year Dormant Delete - 6 month Dormant Delete - 3 month Dormant Delete</h2>
+<p class="main">If an acocunt has been dormant for this amount of time, then it will have its account, characters and all items erased from the system.  It is up to you to decide your own cleaning policy.</p>
+<h2 class="dochead">Import Recipes</h2>
+<p class="main">Recipes are normally stored in a flat file in the gameserver filesystem.  This option reads in the flat file and creates a database table from it, so the recipe calculator can look up recipes much more easily.  It typically only needs to be done once on the installation of the dropcalc, but it does need to be done on each gameserver that the dropcalc is installed on.  Obviously, if you change your recipes file than you will have to re-run this tool, but that should be a very rare occurance.</p>
+<table border="0" cellspacing="0" cellpadding="0"><tr><td>
+<h2 class="dochead">Clone NPC</h2>
+<p class="main"><img src="npc.jpg" alt="" width="300" height="330" border="0" align="right">This allows you to create a custom NPC from an existing NPC.  It does all this serverside, and not client side, so no client patches are needed for the client to see an NPC created this way.  It allows you to change the NPC name and title, and will create a new NPC in the id region of 90000.  You can declare the NPC to be agro or not, the type and some other very basic details.  eg. I used it to quickly clone a Lizardman in to a non agressive L2Npc character that I then attached HTML text to and made a part of a quest.  Obviously, after creating a new NPC, the server has to be restarted before the change is seen.  If you want to change an already existing NPC, then that means going in to the database manually.</p>
+<h2 class="dochead">Box OK IPs</h2>
+<p class="main">A list is produced of the IP's that the dropcalc currently has registered as O.K. to dual box.  You have the option of deleting any entry from this list.</p>
+<h2 class="dochead">Logon Status - Restart Logon - Shitdown Logon</h2>
+<p class="main">These options deal with the logon server, rather than the gameserver, and will require you to re-enter your account password before they can be used.  They do what they say on the tin.</p>
+<h2 class="dochead">Enchant 5+ , 10+ , etc.</h2>
+<p class="main">These options produce a list of enchanted items on the server that are not owned by GM characters or accounts.  The number is the lower threshold that it will begin listing from.  The list will produce a name and account of the owner of the item, and you can click on either to get to the character, or the account details.</p>
+<h2 class="dochead">Create test character</h2>
+<p class="main">This option creates an administration account and character which is in violation of the bot banning rules.  You can thus use this option to test if the automated banning system is, indeed, working.</p>
+<h2 class="dochead">List Banned Accounts</h2>
+<p class="main">A list is produced of the accounts that are banned on the system.  The order is in date order of latest logon first.</p>
+</td></tr></table>
+
+		<p class="main">&nbsp;</p>
+		<center><img src="../simages/bg_foot.gif"></center>
+		
+	</td></tr></table>
+</td><td><img src="../simages/blank.gif" width="20" height="1"></td></tr></table>
+<!-- End Content -->
+</body>
+</html>

@@ -1,0 +1,80 @@
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" title="style01.css" media="screen" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<title>Michelle's L2J Dropcalc</title>
+</head>
+<body>
+<table width="100%" height="100%" border="0" class="back1" cellpadding="0" cellspacing="0"><tr><td>
+	<table width="100%" height="100%" border="0" class="back2" cellpadding="0" cellspacing="0"><tr><td valign="top">
+		<table width="220" border="0" cellpadding="0" cellspacing="0"><tr><td><img src="simages/blank.gif" width="1" height="160"></td></tr><tr><td>
+			<ol>
+			<li><strong><a href="index.htm" class="mainmenu"> Home</a></strong></li>
+			<li><strong><a href="overv.htm" class="mainmenu"> Overview</a></strong></li>
+			<li><strong><a href="feat.htm" class="mainmenu"> Features</a></strong></li>
+			<li><strong><a href="setup.htm" class="mainmenu"> Initial Setup</a></strong></li>
+			<li><strong><a href="setup2.htm" class="mainmenu"> Setup Options - Dropcalc Settings</a></strong></li>
+			<li><strong><a href="setup3.htm" class="mainmenu"> Setup Options - Technical Settings</a></strong></li>
+			<li><strong><a href="setup4.htm" class="mainmenu"> Setup Options - Cross Gameserver Settings</a></strong></li>
+			<li><strong><a href="updating.htm" class="mainmenu"> Updating</a></strong></li>
+			<li><strong><a href="telnet.htm" class="mainmenu"> Telnet System</a></strong></li>
+			<li><strong><a href="chat.htm" class="mainmenu"> Chat System</a></strong></li>
+			<li><strong><a href="dbmain.htm" class="mainmenu"> Database Compare</a></strong></li>
+			<li><strong><a href="skin.htm" class="mainmenu"> Changing the skin</a></strong></li>
+			<li><strong><a href="automation.htm" class="mainmenu"> Automated systems</a></strong></li>
+			<li><strong><a href="routing.htm" class="mainmenu"> Routing traffic</a></strong></li>
+			<hr>
+			<center><p class="main"><strong>GM Talkthrough</strong></p></center>
+			<li><strong><a href="talk1.htm" class="mainmenu"> Logon Page</a></strong></li>
+			<li><strong><a href="talk2.htm" class="mainmenu"> Search Basics</a></strong></li>
+			<li><strong><a href="talk3.htm" class="mainmenu"> First Menu</a></strong></li>
+			<li><strong><a href="talk4.htm" class="mainmenu"> Server Tools</a></strong></li>
+			<li><strong><a href="talk5.htm" class="mainmenu"> Log and Console files</a></strong></li>
+			<li><strong><a href="talk6.htm" class="mainmenu"> Item Search</a></strong></li>
+			<li><strong><a href="talk7.htm" class="mainmenu"> Character Editing</a></strong></li>
+			<li><strong><a href="talk8.htm" class="mainmenu"> Mob Searches</a></strong></li>
+			<li><strong><a href="talk9.htm" class="mainmenu"> Account Adjustment</a></strong></li>
+			<li><strong><a href="talk10.htm" class="mainmenu"> Server Statistics</a></strong></li>
+			<li><strong><a href="talk11.htm" class="mainmenu"> Shops and Pets</a></strong></li>
+			<li><strong><a href="talk12.htm" class="mainmenu"> Database Utils</a></strong></li>
+			<li><strong><a href="talk13.htm" class="mainmenu"> Recipe Calculator</a></strong></li>
+			<hr>
+			<li><strong><a href="techt.htm" class="mainmenu"> Tech Talk</a></strong></li>
+			<li><strong><a href="quest1.htm" class="mainmenu"> Simple Quest Creation Guide</a></strong></li>
+			<li><strong><a href="statement.htm" class="mainmenu"> Statement of Liability</a></strong></li>
+			</ol>
+		</td></tr></table>
+		</td><td width="100%" valign="top"><img src="simages/blank.gif" width="1" height="100">
+		<h2 class="dropmain">Tech Talk</h2>
+		<h2 class="dochead">So what gives with the setup?</h2>	
+		<p class="main">The majority of it is a piece of cake.  The only thing that is liable to cause you a headache is the file permissions.  The easiest way is to follow the chat setup routine to find out the user name of the web process, and then on the key files, enable group reading and writing and make the web user a member of the group.  Job done.</p>
+		<p class="main">The main thing to worry about is that the user name you're going to log on to the dropcalc with, as the game account will need enough permissions to run the GM utilities.</p>
+		<p class="main">Things like the telnet and file access are only used by the GM funcitons, so the drop calc will function perfectly fine with just the game server and logon server access.  Even the database differential system will still work.  So you don't need the extra stuff to get it running; but the extras are what makes the difference in the drop calc so that gm'ing the game is easier.</p>
+		<p class="main">Oh, and you might prefer to use Firefox to watch the refreshing chat and server logs, as some versions of Internet Explorer don't seem to recognise the auto refresh command.</p>
+		<p class="dropmain">&nbsp;</p>
+		<h2 class="dochead">What is the security like?</h2>	
+		<p class="main">It will probably sadden you to hear that I'm not an expert php programmer, but I have taken some rudimentary steps towards security.</p>
+		<p class="main">When every function runs, the variables it pulls in from the environment are stripped of spurious characters.  The routine that does this is at the bottom of the config.php file.  Don't include commas in the list, or some of the sorts will break.  The functions also start off by evaluating the user name and token they have been passed, on every run.  The security level is pulled from the database on every run, instead of being passed by environment variable, so people can't forge the level of access they have but it does incur an extra little overhead.</p>
+		<p class="main">I haven't checked the system using port 8080, because I don't actually know enough about using secure web services.  If you can get that working, then so much the better.</p>
+		<p class="dropmain">&nbsp;</p>
+		<h2 class="dochead">What were the bugbears</h2>	
+		<p class="main">The first bugbear was the fancy graphics that get downloaded with the items.  I have changed them to GIF files, which are about a 50% space and transfer saving over the BMPs.  This is as far as I can go without introducing a larger overhead on the processing.  It is an issue I plan to revisit later.</p>
+		<p class="main">I did think about a duplicate item number database, so it would pull the duplicate graphics from the same file, but the database overhead wasn't funny.  It is going to take a more innovative aproach to sort this issue out.</p>
+		<p class="main">Code execution time for the database merging utility was a real nightmare.  The problem with the routine is that the design is made to be flexible; it was made to operate no matter what the structure of the tables.  While that gave it a lot more longevity and flexibility over a hard coded system, it does take a lot more time to execute because of the inefficient indexes and the lack of a direct table to table comparison function in MySQL. Increasing the php script run time variable does solve the problem, but it is an issue that nevertheless still bugs me.  I do recommend taking a backup of your database before relying on this mechanism; although it has been tested, there is nothing like taking precautions, even with trusted code, and I never know when something else will be introduced or changed that trips the system up.  The checking routine in step 2 should give you advanced warning of any serious changes being made to the table structure in a new datapack, however.</p>
+		<p class="main">It should be noted that the only time the live database is altered, is when it comes to replaying the merge script, or restoring the direct database backups, so for the majority of the database tool operations, it isn't doing anything incredibly drastic.  I have faith in what I've coded, and it has always worked on the test systems, it is just that without a live system to test on, I can never be 100% sure.</p>
+		<p class="main">The creation of the code itself has been done in spare time.  Working for a living, laundry, food, visiting friends  ... ie. having a life, does get in the way a bit.  As a result, my comments are not the best (I avoided going over the top, because that makes the code unreadable) and the variables in some programs are not the same as others.  I found the requirements of the routines changing, so the variables I used ended up changing as well.  The best way to aproach it is to take each file on its own.  Also, I used global variables for speed of programming.  Sorry and all that, but I just didn't have the time.</p>
+		<p class="main">The whole system is programmed on a reliability basis, rather than a performance basis.  This means that as much as possible, where the game expands, so the drop calc will be able to cover it.  O.K., so icons for new items won't magically appear, but it will still reports the mobs, etc. faithfully.  If you go in to the "Mobs By Lvl" section and take a look at the drop down list, it is generated dynamically, so as new character types are added the list will reflect them.  So you see, a loss of a little polish here and there, helps keep the system flexible for you and should grow as the datapack grows.</p>
+		<p class="main">I did hit an issue with the latest datapack (at the time) that introduced day and night spawning mobs.  Things like this do require a reprogramming of the drop calc, and while I could have made it bakwards compatable I was facing so much building work on the drop calc, that I just went with the flow.  It is possible, however, to use the dropcalcs database tools to snapshot your databases, so if you want to upgrade to a new datapack, then you can.  Just make sure that you are applying a difference file from your last datapack tables, you can't just drop your current table on the top of the new spawn list because of the new spawn times; the differences will work, though, so you can port over your changed mobs and the system will take them as being always spawned, just like they were to begin with.  ... It is issues like this that mean care is needed (as it always has been needed) when upgrading datapacks.</p>
+		<p class="main">The drop calc doesn't handle any clan operations because the gameserver keeps a copy of clan information in ram.  Changing things in the database doesn't do anything until the server is rebooted, and by that time the changes could have been overwritten by the gameserver again.  Clan operations are basically impossible for the dropcalc to do.</p>
+		<p class="dropmain">&nbsp;</p>
+		<center><img src="../simages/bg_foot.gif"></center>
+		
+	</td></tr></table>
+</td><td><img src="../simages/blank.gif" width="20" height="1"></td></tr></table>
+<!-- End Content -->
+</body>
+</html>

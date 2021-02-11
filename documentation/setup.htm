@@ -1,0 +1,190 @@
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" title="style01.css" media="screen" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<title>Michelle's L2J Dropcalc</title>
+</head>
+<body>
+<table width="100%" height="100%" border="0" class="back1" cellpadding="0" cellspacing="0"><tr><td>
+	<table width="100%" height="100%" border="0" class="back2" cellpadding="0" cellspacing="0"><tr><td valign="top">
+		<table width="220" border="0" cellpadding="0" cellspacing="0"><tr><td><img src="simages/blank.gif" width="1" height="160"></td></tr><tr><td>
+			<ol>
+			<li><strong><a href="index.htm" class="mainmenu"> Home</a></strong></li>
+			<li><strong><a href="overv.htm" class="mainmenu"> Overview</a></strong></li>
+			<li><strong><a href="feat.htm" class="mainmenu"> Features</a></strong></li>
+			<li><strong><a href="setup.htm" class="mainmenu"> Initial Setup</a></strong></li>
+			<li><strong><a href="setup2.htm" class="mainmenu"> Setup Options - Dropcalc Settings</a></strong></li>
+			<li><strong><a href="setup3.htm" class="mainmenu"> Setup Options - Technical Settings</a></strong></li>
+			<li><strong><a href="setup4.htm" class="mainmenu"> Setup Options - Cross Gameserver Settings</a></strong></li>
+			<li><strong><a href="updating.htm" class="mainmenu"> Updating</a></strong></li>
+			<li><strong><a href="telnet.htm" class="mainmenu"> Telnet System</a></strong></li>
+			<li><strong><a href="chat.htm" class="mainmenu"> Chat System</a></strong></li>
+			<li><strong><a href="dbmain.htm" class="mainmenu"> Database Compare</a></strong></li>
+			<li><strong><a href="skin.htm" class="mainmenu"> Changing the skin</a></strong></li>
+			<li><strong><a href="automation.htm" class="mainmenu"> Automated systems</a></strong></li>
+			<li><strong><a href="routing.htm" class="mainmenu"> Routing traffic</a></strong></li>
+			<hr>
+			<center><p class="main"><strong>GM Talkthrough</strong></p></center>
+			<li><strong><a href="talk1.htm" class="mainmenu"> Logon Page</a></strong></li>
+			<li><strong><a href="talk2.htm" class="mainmenu"> Search Basics</a></strong></li>
+			<li><strong><a href="talk3.htm" class="mainmenu"> First Menu</a></strong></li>
+			<li><strong><a href="talk4.htm" class="mainmenu"> Server Tools</a></strong></li>
+			<li><strong><a href="talk5.htm" class="mainmenu"> Log and Console files</a></strong></li>
+			<li><strong><a href="talk6.htm" class="mainmenu"> Item Search</a></strong></li>
+			<li><strong><a href="talk7.htm" class="mainmenu"> Character Editing</a></strong></li>
+			<li><strong><a href="talk8.htm" class="mainmenu"> Mob Searches</a></strong></li>
+			<li><strong><a href="talk9.htm" class="mainmenu"> Account Adjustment</a></strong></li>
+			<li><strong><a href="talk10.htm" class="mainmenu"> Server Statistics</a></strong></li>
+			<li><strong><a href="talk11.htm" class="mainmenu"> Shops and Pets</a></strong></li>
+			<li><strong><a href="talk12.htm" class="mainmenu"> Database Utils</a></strong></li>
+			<li><strong><a href="talk13.htm" class="mainmenu"> Recipe Calculator</a></strong></li>
+			<hr>
+			<li><strong><a href="techt.htm" class="mainmenu"> Tech Talk</a></strong></li>
+			<li><strong><a href="quest1.htm" class="mainmenu"> Simple Quest Creation Guide</a></strong></li>
+			<li><strong><a href="statement.htm" class="mainmenu"> Statement of Liability</a></strong></li>
+			</ol>
+		</td></tr></table>
+		</td><td width="100%" valign="top"><img src="simages/blank.gif" width="1" height="100">
+		<h2 class="dropmain">Initial Setup</h2>
+		<h2 class="dochead">Ultra-quick setup</h2>	
+		<p class="main">1) Download knightdrop.zip and knightdropimg.zip and unzip to a location on your web server.</p>
+		<p class="main">2) Download knightdrop.sql and run the first few tables against your login database and the rest against your gameserver database.</p>
+		<p class="main">3) <strong>Edit config.php</strong></p>
+		<p class="main">In $gameservers ARRAY ... replace ...</p>
+		<ul>
+		<li>"db_location" - IP or hostname of your gameserver DATABASE</li>
+		<li>"db_database" - Name of the gameserver database - same as your gameserver/config/server.properties</li>
+		<li>"db_username" - username for the gameserver database - same as your gameserver/config/server.properties</li>
+		<li>"db_password" - password for the gameserver database - same as your gameserver/config/server.properties</li>
+		<li>0 - This is the number of the default skin.  Change this number to that of whatever skin you want to be the default.</li>
+		<li>gameserver_port - same as your gameserver/config/server.properties - 7777 or similar</li>
+		<li>"gameserver_telnet_ip" - IP or hostname of your GAMESERVER</li>
+		<li>"gameserver_telnet_port" - port number for your gameserver telnet - same as your gameserver/config/telnet.properties</li>
+		<li>"gameserver_telnet_password" - password for the gameserver database - same as your gameserver/config/telnet.properties</li>
+		<li>gameserver_timeout - Timeout for the telnet, usually 10 seconds, but increase if necessary.</li>
+		</ul>
+		<ul>
+		<li>$dblog_location = "localhost" - IP or hostname of your login server DATABASE</li>
+		<li>$dblog_l2jdb = "l2jdblog" - Name of the loginserver database - same as your loginserver/config/server.properties</li>
+		<li>$dblog_user = "username"- username for the gameserver database - same as your loginserver/config/server.properties</li>
+		<li>$dblog_psswd = "password" - password for the gameserver database - same as your loginserver/config/server.properties</li>
+		<li>$dblog_port = 2106 - same as your loginserver/config/server.properties - 2106 or similar</li>
+		<li>$log_telnet_host = "localhost" - IP or hostname of your LOGINSERVER</li>
+		<li>$log_telnet_port = "9999" - port number for your loginserver telnet - same as your loginserver/config/telnet.properties</li>
+		<li>$log_telnet_timeout = 10 - Timeout for the telnet, usually 10 seconds, but increase if necessary.</li>
+		</ul>
+		<hr>
+		<h2 class="dochead">If you think something is wrong ...</h2>	
+		<p class="main">Run the check.php file ... instead of index.php, run check.php and it will give you a report on what is missing since you last updated.</p>
+		<hr>
+		<h2 class="dochead">What versions are needed?</h2>	
+		<p class="main">I used the following versions when creating the system ... MySql V4.1.10a ... PHP 4.3.10 ... SuSE 9.3 ... Of course, things do change from version to version, but I would expect later versions of the MySQL and PHP engines to work with this code, although earlier engines might not support some of the functionality.  It is down to you to test it with your set up.</p>
+		<p class="dropmain">&nbsp;</p>
+		<h2 class="dochead">What about Windows servers?</h2>	
+		<p class="main">Windows servers which are using PHP version 5 and above, should be fine with most of the features except the ability to view a characters chat.  Windows with PHP 4 will only be able to view the whole of a chat or log file.  More on that later.
+		<p class="dropmain">&nbsp;</p>
+		<h2 class="dochead">How do I install the system?</h2>	
+		<p class="main">Just unpack the files in to an area where the servers browser engine can see them, and PHP is allowed to run.  You need the PHP code and the images at the minimum.  Very basic configuration is needed to get the drop calc up and running, but advanced configuration is needed to use some of the main features.  You also need to run the knightdrop.sql queries against your L2J database, so that the drop calc has the information that it needs.</p>
+		<p class="dropmain">&nbsp;</p>
+		<h2 class="dochead">What do I need to change?  What do I need to run?</h2>	
+		<p class="main">Firstly, you need to run the knightdrop.sql against your database.  This is usually on a separate download.  If your database is not l2jdb, then edit the USE statement near the top of the script.  This will create the additional tables for you.  Be aware that some of the queries need to be run against your logon database, and others need to be run against your gameserver database.  There are marks which tell you which ones are which.</p>
+		<p class="main">The drop calc uses the user names and passwords that are located in the logon server database, so you will need at least one entry in here, with the same account name as the account that you are going to set up the drop calc with.  The system will create any account in here if the user name and password have checked out, so you don't need to add an entry in here like used to be done.  Note, however, that the game account will need an access level high enough to run the administration tools.  Read later about the admin levels; these will need a bit of thought in their setting up.</p>
+		<p class="dropmain">&nbsp;</p>
+		<h2 class="dochead">Configuring config.php</h2>	
+		<p class="main">For the most part, this is fairly straightforward to get working.</p>
+		<pre class="main">//Gamserverdb
+$gameservers = ARRAY(ARRAY("Title", "db_location", "db_database", "db_username", "db_password", 
+				0, "server files location", gameserver_port, "knight_db", "gameserver_telnet_ip", 
+					"gameserver_telnet_port", "gameserver_Telnet_password", gameserver_timeout)
+// ,ARRAY("Title", "db_location", "db_database", "db_username", "db_password", 0, 
+			"server files location", gameserver_port, "knight_db", "gameserver_telnet_ip", 
+				"gameserver_telnet_port", "gameserver_Telnet_password", gameserver_timeout)
+);</pre>
+		<p class="main">The dropcalc can handle more than one gameserver against one logon server.  If you need more than one gameserver, simply remove the "//" from the start of the second line and use that as well ... repeat the second line for as many gameservers as you have.  The second line differs from the first because it has an extra comma at the start of the line.</p>
+		<p><strong>Title</strong> - This is the title that you want your gameserver to have,be it Sieghardt, Bartz, Lithra or whatever.  It is free text and you can call it what you like.  This is the text that is shown in the drop down list when you use more than one gameserver.</p>
+		<p><strong>db_location, db_database, db_username, db_password</strong> - the location of the gameserver, be it localhost, 172.0.0.1, or whatever along with the database name, the user name and the password to access teh gameserver database.</p>
+		<p><strong>0</strong> - This is actually the default skin.  It used to read "default_skin" but so many people were failing to replace it, and e-mailing me to ask what was wrong, that I replaced it with the number 0 from the start.  The dropcalc comes with four skins, numbered from 0 to 3, and you can associate a particular skin with a particular gameserver instance if you wish.</p>
+		<p><strong>server_files_location</strong> - is the location of the gameserver files.  You don't have to give this variable, but it is needed for the dropcalc to be able to read some gameserver files, like the chat logs, the console logs, etc.  It must be on a filesystem which is remotely mounted to the dropcalc, in order for the dropcalc to read it..</p>
+		<p><strong>gameserver_port</strong> - is the port number that the gameserver advertises on.  Used in conjunction with the telnet_ip, the dropcalc uses this port number to talk with the gameserver to determine whether or not it is online.</p>
+		<p><strong>knight_db</strong> - is a database which you need to create on the same server as the gameserver.  It also needs to be given the same access permissions as the gameserver database.  This is because the dropcalc needs a place to store other information which would otherwise completley swamp the gameserver database.  The knight_db is used for storing things like the statistics and the account notes.</p>
+		<p><strong>gameserver_telnet_ip, gameserver_telnet_port, gameserver_Telnet_password, gameserver_timeout</strong> - communication with the gameserver via telnet is necessary in order for the dropcalc to give many commands to the game.  Without this, the dropcalc can not do things like kick players, give items to online players, etc.</p>
+		<p class="main">&nbsp;</p>
+		<pre class="main">//Logonserverdb
+$dblog_location = "localhost";
+$dblog_l2jdb = "l2jdblog";
+$dblog_user = "username";
+$dblog_psswd = "password";
+$dblog_port = 2106;
+$login_dir = "/login/";		// Dont forget the ending slash/backslashes!</pre>
+		<p class="main">The logon server details are straightforward.  The location of the logon server database, the name of the database itself and the username/password to access it.  The logonserver port is used in conjunction with the logonserver telnet IP so that the dropcalc can tell if the logonserver is running, or stopped.  Finally, the logon_dir is the location of the logonservers files; this is needed so that the dropcalc knows where to find the logonserver console logs.</p>
+		<p class="main">&nbsp;</p>
+		<pre class="main">// Login Telnet Settings
+$log_telnet_host = "localhost";
+$log_telnet_port = "9999";
+$log_telnet_timeout = 10;</pre>
+		<p class="main">The logon server telnet settings are needed to give some crucial commands to the logon server should you need to restart it via the dropcalc.  Just set these to the same values you set in the telnet properties for your login server.  The host is either an IP address or the hostname of the machine where your logon server is running.</p>
+		<p class="main">&nbsp;</p>
+		<p class="main">These next settings are used in a number of places by various bits of code.  The svr_dir_delimit is used by the dropcalc to create various strings of file locations when it tries to get at the console and chat logs, etc.  It is usually / for linux and \\ for windows.  The images_dir is used to tell the dropcalc where, in terms of web address (relational to the dropcalc) the image graphics are found.  If you are running one copy of the dropcalc, this usually doesn't need to change, but if you are using more than one copy of the dropcalc, then you can redirect this to another dropcalcs images to save on server space.  The images_loc_dir says where the images are on the local filesystem so that the dropcalc can actually find the image files; this is used for checking whether various images actually exist on the system before the dropcalc tries to display them.</p>
+		<pre class="main">$svr_dir_delimit = "/";
+$images_dir = "images/";  	// Web path to images, always "/"
+$images_loc_dir = "images/"; 	// server path to images ... relative to current php directory.</pre>
+		<p class="main">For Windows servers, you'll probably need to change it to something like this ...</p>
+		<pre class="main">$svr_dir_delimit = "\\";
+$images_dir = "images/";  	// Web path to images, always "/"
+$images_loc_dir = "images\\"; 	// server path to images ... relative to current php directory.</pre>
+		<hr>
+		<p class="main">This array stored the NAME of each of the skins.  Each entry here corresponds to a skin directory, with 0 being the first.  More about these in the skin section.</p>
+		<pre class="main">$skinslist = ARRAY("ToI - Blue Elf", "Frintezza", "Brushed Metal", "Simply Gray");</pre>
+		<p class="main">&nbsp;</p>
+<pre class="main">// Password for allowing deletion of accounts and characters.
+$del_accchar = "l2j";
+
+// Database backup system variables, including passwords required for each of the specific operations.
+$knight_db = "knightdb";  // Database to use/create for the dropcalc tables so that they are away from the main DB.
+$conf_reference = "l2j";
+$conf_diff = "l2j";
+$conf_replay = "l2j";
+$conf_backup = "l2j";
+$conf_restore = "l2j";</pre>
+		<p class="main">These are very important settings.  They are passwords which control access to some of the more dangerous functions of the drop calc.  The functions are usually reserved for admins anyway, but they also act as a check against accidentally clicking buttons.  The exception in this list is the $knight_db variable, which holds the database name which you will allow the drop calc to use for its own workings.  By default, MySQL allows a process or user to create a database and have full permissions to it, so the drop calc will create this table when it needs it; which will be when you start extracting your custom data for porting between datapack revisions.</p>
+		<p class="main">&nbsp;</p>
+		<pre class="main">// Tables which will be backed up, or merged.
+$tables_merge = array('char_templates', 'clanhall', 'droplist', 'helper_buff_list', ...
+$tables_backup = array('account_data', 'accounts', 'auction', 'auction_bid', ...</pre>
+		<p class="main">These are arrays which contain the lists of tables which are either to be backed up, or to undergo a merge, when it comes time to upgrade the datapack.  More on that in the database section.</p>
+		<p class="main">&nbsp;</p>
+		<p class="main">The drop calc has a list of freight location names, as the gameservers table doesn't keep one.  As the game gets expanded and more freight locations become available, you can simply change and expand this list to account for them.  This list is what is responsible for the users being able to tell which warehouse their freight is in.</p>
+		<pre class="main">// Freight Location table.  Only for adjustment when new freight locations are added to the game.
+// If you receive "loc x" instead of a freight location name, replace the loc code here with the correct freight location name.
+$freightloc = array('Loc 1', 'Dark Elven Village', 'Talking Island Village', 'Elven Village', 'Orc Village', 'Gludin', 'Dwarven Village', ...</pre>
+		<p class="main">&nbsp;</p>
+		<p class="main">There are a few variables used here as references for text colours throughought the site.  If you are going to change any of the first three, then it is best to put them at the top of your skin.php code, rathar than change them here.</p>
+		<pre class="main">// HTML colour codes for the standard red, green and blue character displays, and also the
+// colour and background colour for the pop up boxes.
+$red_code = "#aa0000";
+$green_code = "#00aa00";
+$blue_code = "#0000aa";
+$pop_up_background = "#000000";
+$pop_up_color = "#eeeeee";</pre>
+		<p class="main">&nbsp;</p>
+	<p class="main">This last section deals with the languages supported by the system.  Each entry consists of three variables.  The first is the name for the language that appears in the drop down box.  The second is the name of the variable file that contains the language variables.  The third relates to the language number of the detailed item descriptions contained in the knightitemdesc table; so unless you have separate descriptions loaded for your language, best leave this at 1 for English.  If you have partial descriptions, then that is fine; the code will look for the text it needs in the language you have selected, and if it can't find it, it will revert to the English description if one is available.</p>
+<pre class="main">// Countries and language files
+$language_array = ARRAY(ARRAY('English', 'lang-eng.php',1),
+			ARRAY('Deutsch', 'lang-deu.php',1),
+			ARRAY('French', 'lang-fr.php',1),
+			ARRAY('Polish', 'lang-pol.php',1),
+			ARRAY('Italian','lang-it.php',1),
+			ARRAY ('BR Portuguese', 'lang-ptbr.php',1));</pre>
+		<p class="main">&nbsp;</p>
+
+		<center><img src="../simages/bg_foot.gif"></center>
+		
+	</td></tr></table>
+</td><td><img src="../simages/blank.gif" width="20" height="1"></td></tr></table>
+<!-- End Content -->
+</body>
+</html>

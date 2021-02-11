@@ -1,0 +1,123 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" title="style01.css" media="screen" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<title>Michelle's L2J Dropcalc</title>
+</head>
+<body>
+<table width="100%" height="100%" border="0" class="back1" cellpadding="0" cellspacing="0"><tr><td>
+	<table width="100%" height="100%" border="0" class="back2" cellpadding="0" cellspacing="0"><tr><td valign="top">
+		<table width="220" border="0" cellpadding="0" cellspacing="0"><tr><td><img src="simages/blank.gif" width="1" height="160"></td></tr><tr><td>
+			<ol>
+			<li><strong><a href="index.htm" class="mainmenu"> Home</a></strong></li>
+			<li><strong><a href="overv.htm" class="mainmenu"> Overview</a></strong></li>
+			<li><strong><a href="feat.htm" class="mainmenu"> Features</a></strong></li>
+			<li><strong><a href="setup.htm" class="mainmenu"> Initial Setup</a></strong></li>
+			<li><strong><a href="setup2.htm" class="mainmenu"> Setup Options - Dropcalc Settings</a></strong></li>
+			<li><strong><a href="setup3.htm" class="mainmenu"> Setup Options - Technical Settings</a></strong></li>
+			<li><strong><a href="setup4.htm" class="mainmenu"> Setup Options - Cross Gameserver Settings</a></strong></li>
+			<li><strong><a href="updating.htm" class="mainmenu"> Updating</a></strong></li>
+			<li><strong><a href="telnet.htm" class="mainmenu"> Telnet System</a></strong></li>
+			<li><strong><a href="chat.htm" class="mainmenu"> Chat System</a></strong></li>
+			<li><strong><a href="dbmain.htm" class="mainmenu"> Database Compare</a></strong></li>
+			<li><strong><a href="skin.htm" class="mainmenu"> Changing the skin</a></strong></li>
+			<li><strong><a href="automation.htm" class="mainmenu"> Automated systems</a></strong></li>
+			<li><strong><a href="routing.htm" class="mainmenu"> Routing traffic</a></strong></li>
+			<hr>
+			<center><p class="main"><strong>GM Talkthrough</strong></p></center>
+			<li><strong><a href="talk1.htm" class="mainmenu"> Logon Page</a></strong></li>
+			<li><strong><a href="talk2.htm" class="mainmenu"> Search Basics</a></strong></li>
+			<li><strong><a href="talk3.htm" class="mainmenu"> First Menu</a></strong></li>
+			<li><strong><a href="talk4.htm" class="mainmenu"> Server Tools</a></strong></li>
+			<li><strong><a href="talk5.htm" class="mainmenu"> Log and Console files</a></strong></li>
+			<li><strong><a href="talk6.htm" class="mainmenu"> Item Search</a></strong></li>
+			<li><strong><a href="talk7.htm" class="mainmenu"> Character Editing</a></strong></li>
+			<li><strong><a href="talk8.htm" class="mainmenu"> Mob Searches</a></strong></li>
+			<li><strong><a href="talk9.htm" class="mainmenu"> Account Adjustment</a></strong></li>
+			<li><strong><a href="talk10.htm" class="mainmenu"> Server Statistics</a></strong></li>
+			<li><strong><a href="talk11.htm" class="mainmenu"> Shops and Pets</a></strong></li>
+			<li><strong><a href="talk12.htm" class="mainmenu"> Database Utils</a></strong></li>
+			<li><strong><a href="talk13.htm" class="mainmenu"> Recipe Calculator</a></strong></li>
+			<hr>
+			<li><strong><a href="techt.htm" class="mainmenu"> Tech Talk</a></strong></li>
+			<li><strong><a href="quest1.htm" class="mainmenu"> Simple Quest Creation Guide</a></strong></li>
+			<li><strong><a href="statement.htm" class="mainmenu"> Statement of Liability</a></strong></li>
+			</ol>
+		</td></tr></table>
+		</td><td width="100%" valign="top"><img src="simages/blank.gif" width="1" height="100">
+		<h2 class="dropmain">Database Compare System</h2>
+		<h2 class="dochead">The process</h2>	
+		<p class="main">The database utilities are designed to make porting custom information easier when you are upgrading your system.  It does this by keeping a reference point.  If you've already got an established gameserver running, then you're going to need the last set of datapack tables that you created your server from.</p>
+		<p class="main">It works in two ways.  It has a list of tables that you want to either backup, or merge.  Which tables are which, are set in the config.php document ...</p>
+<pre class="main">$tables_merge = array('char_templates', 'clanhall', 'droplist', 'helper_buff_list', 'henna', ...
+$tables_backup = array('account_data', 'accounts', 'auction', 'auction_bid', 'auction_watch', ...
+</pre>
+		<p class="main">You may wish to review my defaults and change which tables are backed up, or otherwise merged.  However, I suggest that you have a practice with the system and get comfortable with the way it works, before you make decisions about which tables you wish to do what with.  Note that some tables are not backed up or merged at all, such as the armor, weapons and etcitems tables.  If you maintain custom changes to these tables for weapon hacks, etc. then you might consider adding these tables to the merged list (but be aware of the extra time added, as explained later in this page.)</p>
+		<p class="main">One of the key things to notice during some of the heavier merge operations is that you may get an execution, time exceeded error.  This will probably happen because the default CPU execution time (in terms of percentage of CPU run time) is set to a level much lower than the script needs in order to complete execution.  This is set in the php.ini file and is the variable max_execution_time which is defaulted to 30 seconds.</p>
+		<p class="main">The execution time seems to be generated according to CPU percentage time, so if the PHP script only got 10% of a CPU's execution time, then the PHP script would be alive for 5 minutes before it keeled over with this error.  Unfortunately, the setting of this number is crucial to the scripts execution, as I'll explain.  The difference tables are generated by matching your live tables against the reference tables.  The result of this is two tables; one that details what you've added which isn't in the reference database, and what you've removed that is still in the reference file.  This is, essentially, what a difference file is all about; it is the differences between the reference table (the datapack tables) and the current tables after you've been playing the game for a while.</p>
+		<p class="main">Unfortunately, some tables contain a lot of entries.  The spawnlist contains nearly 40,000 records at the time of writing, and there are a few others which contain more than 10,000 entries each, such as the drop list, the merchant buylist, the locations, npc skills and skill trees.  As there is no way in SQL to run this kind of query, I have had to program PHP to go through each entry in the tables by turn and this means slow execution times for a couple of the operations.  By increasing the max_execution_time, you are allowing the PHP scripts more time to run.  </p>
+		<p class="main">My little secret is to run the merge.  If it times out, I'll increase the execution time by another 30 seconds.  Some servers need PHP restarted before they will recognise the change.  I then keep increasing by 30 until the query runs with no problems, and I then finish off by adding another 30 to give it a bit more breathing room.</p>
+		<h2 class="dochead">Passwords</h2>
+		<p class="main">The routines are each protected by a separate password, so that the use of the routines can be further restricted.  Remember that when you run the merge routine, or the replay routine, your processor will be pegged to the ceiling for a few minutes, so you don't want to do this during a busy period.</p>
+<pre class="main">$knight_db = "knightdb"; 
+$conf_reference = "l2j";
+$conf_diff = "l2j";
+$conf_replay = "l2j";
+$conf_backup = "l2j";
+$conf_restore = "l2j";
+</pre>
+		<p class="main">The first statement identifies the knightdrop database.  Set to knightdb as standard, the drop calc makes use of MySQL's rules that any process can create a database, and will have full acccess to that database.  When it runs, it therefore creates that database for its own use.  If you are running more than one copy on a server, then you will want to change the name here, so that the multiple copies of the drop calc aren't stepping on each others toes.  It is a good idea to rename it to something that makes sense, such as knight5000 for your 5000x server, and knight5x for your 5x server.  That way, just by looking at it, you can see which copy is working with which gameserver.</p>
+		<p class="main">The different strings are treated as the "passwords" to run the different processes.  Not only has the user got to be an admin to get in to this level, but they also need to know the correct password to run the routines.  This further helps secure these processes from unauthorised use.  To use a function, you have to put the password in the box above it, and press the button.  Then the routine will run.</p>
+		<h2 class="dochead">Backup Tables</h2>
+		<p class="main">The list of backup'ed tables is just that.  The system will literally backup everything in the tables that is selected, such as the accounts, the character data ... whatever tables you specify in the table_backup array.</p>
+		<p class="main">To backup, it simply drops the previous backup table, if it exists, and copies the current table in to the backup database.  With the tables backed up, you are now free to adjust those tables as per the updated data pack.  Once the new datapack is installed, you can then replay the backup.  The replay, however, doesn't simply drop the new datapack table and restore the backuped table straight on top of it.  Instead of dropping the table, it truncates it.  This means that it empties the table, but it keeps its structure intact and then copies the backuped data in to it.  This means that if the datapack projects new tables contain new fields that the backuped tables didn't, then they are maintained throughout the restore ... although obviously they will contain null data as the drop calc didn't know about them at the time of the backup.  When you come to do the next backup, the new tables are automatically included.</p>
+		<h2 class="dochead">Merged Tables</h2>
+		<p class="main">This one is slightly more complicated, and at the end of the simple explanation, I'll go in to a more detailed account of some of the snags I hit, so if you lose the plot on this section, don't worry so long as you have a grip on what it is actually doing.  I would, however, recommend that you read as much of it as you can, because there are a couple of niggly limitations that everyone should be aware of.</p>
+		<p class="main">The merge section is a way of pulling out your custom changes.  When you first have your virgin datapack tables installed, you need to take a reference point. You then start playing the game and customising it.  When you're ready to upgrade, you make your, "difference file."  This is where the system compares the current tables against your reference tables (what you had when you started it) and it then works out what you have added and deleted from those tables.  The spawnlist is a good example, as you will have usually added your own spawns, and deleted some of the default spawns.  The Merged tables section will show you this in action quite easily by the columns which detail how many rows it found that were added, or removed.</p>
+		<p class="main">Once you have this merge, you can then upgrade your live tables with a new, clean datapack.  YOU THEN TAKE ANOTHER REFERENCE ... as the new datapack tables will become your new reference tables.  Lastly, you replay your difference file.  The replay will firstly make any deletions that are in your custom tables, and then add any custom data in to the live tables.  Again, just like the backup routines, the replay adds data in to the live tables, it doesn't touch the structure.  This is so that any extra columns that the datapack has added, remain intact, but obviously they will contain null data.</p>
+		<p class="main">With the backup restores and the merge replays done, you should now be able to reboot your server and you're ready to rock and roll.</p>
+		<p class="main">&nbsp;</p>
+		<p class="main">Oh, if life were always that simple.  Unfortunately, however, it isn't.  The difference file generation, for example, takes time because it has to create copies of the live and reference tables, and then look through them in turn, deleting entries that are in one, but not the other.  Obviously, because the tables are totally flexible, the routines have to be flexible too.  The ability to specify which tables you want merged comes at a price.  Time.  The routines have to extract the columns from the tables and then dynamically generate SQL statements to do the job.  Going through and generating the SQL statements on a mock live database, took less than two minutes, real time.  Executing the delete statements, however, originally took more than half an hour.  By introducing an automatic index based on the first column in each table, however, this time was reduced to five minutes.  Much more realistic.  That, by the way, was on a 1Ghz processor with 512Meg of RAM.</p>
+		<h2 class="dochead">Already existing servers</h2>
+		<p class="main">Obviously, there is only one thing you can do here, which is probably long winded but is the only way I know around the situation.  First, run a reference point.  This will populate the "ref_" tables in the knightdrop database.  Now, you are going to have to make copies of the merged tables from your last applied datapack, and do a search and replace for the table name, changing from merchant_buylist to ref_merchant_buylist for example, changing the l2jdb to knightdb in the use statement.  You can also safely leave in the drop and create statements, but just make sure that the reference is to the ref_<table> rather than the original.  SO long as the use statement points to the knightdb and not your l2jdb database, then the SQL statements should run fine, or at least be safe from damaging your l2jdb data.</p>
+		<p class="main">PLEASE take your time in doing this; you don't want to wreck your live database or revert it to standard datapack accidentally. If push comes to shove, you can just delete the knightdrop database and run the routines again, as they will recreate the database if it doesn't exist.  If you are unsure, then run the routine to take a reference point, and have a nose around the database to see what is there so that you have a bit more knowledge about what it is doing and how it works before inserting mass data into it.</p>
+		<p class="main">This is a noddy explanation of the different steps that occur during the database upgrade process ...</p>
+		<ol>
+		<li class="main">Install the datapack sql to the l2jdb tables.  This is the obvious thing that you would do when upgrading the datapack.  During the process, this is where your custom stuff all gets wiped out.</li>
+		<li class="main">Compare databases.  Here, the fresh new datapack is checked against the reference tables.  This is only any good if you have backups and difference files to compare against.  In this step, the structures are checked against each other to see if the datapack project have added new columns or removed any columns since the reference database was taken.  See the footnote on Comparing Databases.</li>
+		<li class="main">Take a reference point. This is where you tell the system that the new set of datapack files are to be used as the future reference point.  This is so that any further changes made against this database will be the ones that are carried fowrard to the next upgrade.</li>
+		<li class="main">Replay Differences.  The differences that were recorded against the previous reference database, are played back over the new, fresh database.  It is at this point, and during this action, that any additions, changes and deletions you made to the database during the previous "life span," are also made, automatically, to the new database.  THIS OPERATION CAN TAKE A FEW MINUTES and will pin your processor to the ceiling during this time. READ THE NOTES on restore errors at the bottom of this text.</li>
+		<li class="main">Restore backup.  The straightforward backups are now replayed to the databases; the tables that record the game state, such as the account data, the character data, the items, the sidebars, skills, heros, auctions and that stuff.  It is a straightforward restore.</li>
+		<li class="main">Play the game.  This is the normal state of play.  It is during this period that the changes are made to the game tables, as mobs are created, deleted, things are changed in shops and all that sort of thing.</li>
+		<li class="main">Extract differences - when you are ready to do another update, extracting differences is the part that compares the current state of the database against the reference file that you took at the start of the process.  THIS PROCESS CAN TAKE A LONG TIME and will pin your processor to the ceiling while it is running.  This is probably the longest procedure of them all, and the C4 datapack took seven minutes to process from a remote connection to a 1Ghz box with 512 Meg of Ram during testing, so be warned that it could take time and your browser may appear to hang.  Wait until you receive either a full set of results, or else a timeout message.  I have never had a browser time out on me yet, although I have had the script itself exceed execution time.</li>
+		<li class="main">Backup game tables.  This is where the current state of the game, account details, item lists, warehouses, clans, etc. are backed up.  Because it is a straightforward backup operation, this doesn't usually take much time to perform.</li>
+		<li class="main">Go to step 1.  At the point where you have a current backup of the game tables and your differences, you can now update the l2jdb tables with the next datapack.</li>
+		</ol>
+		<h2 class="dochead">Comparing Databases</h2>
+		<p class="main">This is the tricky part.  When the datapack project introduce new columns in to tables, it can be a bit of an awkward situation.  In most cases, it isn't much of a headache, but is something you should be aware of.  If a new column has an index on it (I don't expect any new columns to have new indexes on them) then check to see if it is a unique index.  Although the chances of a new unique index being introduced to an existing table are slim, it is worth checking ahead of time.  The reason being is this ...</p>
+		<p class="main">If your difference file contains additions, then the new columns will just contain null.  Obviously, a unique key can not contain more than one null.  I can only suggest that in this very rare case, that you add a colum on to the corresponding add_ table and populate it manually; then the replay should work.  Deletions are not affected by new columns.</p>
+		<p class="main">Again, I do not expect that the datapack project will actually drop any columns during an update, but it is a possibility.  If the system reports that a column has been dropped, check with the project that it is not a mistake.  It could be that the column has been renamed for some reason; in this case, you are going to have to rename the corresponding column in both the add_ and del_ tables.  This is done by adding the new column, using an SQL statement to copy the data from one column to the other, and then dropping the now obsolete column.</p>
+		<h2 class="dochead">Optimising the process.</h2>
+		<p class="main">Some consideration should be given to which tables you backup and which you merge.  As the L2J system progresses, so to will the amount of data that it holds.  Merging takes the largest amount of time, and if you can reduce this time, then it will help you enormously.  These are the arguments you need to think of ...</p>
+		<ol>
+		<li class="main">The drop list.  If you have a permanent drop list that you have worked on, then you can perform a straightforward backup and restore of this table, rather than do a merge of it.  Obviously, any future drop details that come in the datapack will be wiped out, but that is your decision to make.</li>
+		<li class="main">The spawn list.  Again, if you are happy with the current spawning tables, then you can back them up rather than merge them.  The down side to this is that if the datapack make any further changes to spawns to bring it in to line with official, then you won't benefit from these changes.</li>
+		<li class="main"> ... you can repeat these arguments for every table that is in the merge list.  The merge list is a way of merging your custom changes with the datapack developments.  It is your decision as to which developments you wish to follow.</li>
+		</ol>
+		<p class="main">If you wish to change a table between the merge and backup, then the best time to do this is during period 6 ...</p>
+		<p class="main">Removing a table from the merge list, removing a table from the backup list or adding a table to the backup list, is simply a matter of changing the entires in the array in config.php and if you want to be tidy about it, drop the corresponding tables in the knightdb database.</p>
+		<p class="main">Adding a table to the merge list, however, is a bit more tricky.  Again, it is best done in period 6, but as well as entering the table name in the array in config.php you are going to have to create the ref_<table> which gives the system a reference table to work against.  You can then prune the table as necessary, or even empty it, but it is an absolute minimum requirement that the table is there and has a structure.</p>
+		<p class="main">There is another advantage to this aproach.  Once a set of differences has been taken, those same differences can be applied to more than one server, making it easier to maintain differences across multiple installations; two drop calcs, each referencing separate l2j databases can both reference the same knightdb database, making replaying the differences much easier.</p>
+		<h2 class="dochead">Restore errors</h2>
+		<p class="main">The main problem that can be encountered with replaying a database is duplicate keys.  Say a shop has five items, and you add two more.  Then the datapack adds another item, so one of your own adds will fail.  This will show up as a red number in the replay report.  Any errors that occur on the inserts are recorded in the "errors" table, which contains the SQL that the drop calc tried to execute and the reason why it failed.  The most common is a duplicate item number.  The thing which this error report does give you the chance to do, is to export the failed SQL statements to a text file, adjust them to avoid the failure, and then replay them against the database manually.  NOTE THAT YOU CAN NOT REPLAY YOUR CAHNGES MORE THAN ONCE ... because otherwise entries that were successful, stand a chance of being successful again on tables that don't have unique indexes, and that will really muck up your databases.</p>
+		<p class="main">&nbsp;</p>
+		<center><img src="../simages/bg_foot.gif"></center>
+		
+	</td></tr></table>
+</td><td><img src="../simages/blank.gif" width="20" height="1"></td></tr></table>
+<!-- End Content -->
+</body>
+</html>

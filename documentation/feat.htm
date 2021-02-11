@@ -1,0 +1,93 @@
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" title="style01.css" media="screen" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<title>Michelle's L2J Dropcalc</title>
+</head>
+<body>
+<table width="100%" height="100%" border="0" class="back1" cellpadding="0" cellspacing="0"><tr><td>
+	<table width="100%" height="100%" border="0" class="back2" cellpadding="0" cellspacing="0"><tr><td valign="top">
+		<table width="220" border="0" cellpadding="0" cellspacing="0"><tr><td><img src="simages/blank.gif" width="1" height="160"></td></tr><tr><td>
+			<ol>
+			<li><strong><a href="index.htm" class="mainmenu"> Home</a></strong></li>
+			<li><strong><a href="overv.htm" class="mainmenu"> Overview</a></strong></li>
+			<li><strong><a href="feat.htm" class="mainmenu"> Features</a></strong></li>
+			<li><strong><a href="setup.htm" class="mainmenu"> Initial Setup</a></strong></li>
+			<li><strong><a href="setup2.htm" class="mainmenu"> Setup Options - Dropcalc Settings</a></strong></li>
+			<li><strong><a href="setup3.htm" class="mainmenu"> Setup Options - Technical Settings</a></strong></li>
+			<li><strong><a href="setup4.htm" class="mainmenu"> Setup Options - Cross Gameserver Settings</a></strong></li>
+			<li><strong><a href="updating.htm" class="mainmenu"> Updating</a></strong></li>
+			<li><strong><a href="telnet.htm" class="mainmenu"> Telnet System</a></strong></li>
+			<li><strong><a href="chat.htm" class="mainmenu"> Chat System</a></strong></li>
+			<li><strong><a href="dbmain.htm" class="mainmenu"> Database Compare</a></strong></li>
+			<li><strong><a href="skin.htm" class="mainmenu"> Changing the skin</a></strong></li>
+			<li><strong><a href="automation.htm" class="mainmenu"> Automated systems</a></strong></li>
+			<li><strong><a href="routing.htm" class="mainmenu"> Routing traffic</a></strong></li>
+			<hr>
+			<center><p class="main"><strong>GM Talkthrough</strong></p></center>
+			<li><strong><a href="talk1.htm" class="mainmenu"> Logon Page</a></strong></li>
+			<li><strong><a href="talk2.htm" class="mainmenu"> Search Basics</a></strong></li>
+			<li><strong><a href="talk3.htm" class="mainmenu"> First Menu</a></strong></li>
+			<li><strong><a href="talk4.htm" class="mainmenu"> Server Tools</a></strong></li>
+			<li><strong><a href="talk5.htm" class="mainmenu"> Log and Console files</a></strong></li>
+			<li><strong><a href="talk6.htm" class="mainmenu"> Item Search</a></strong></li>
+			<li><strong><a href="talk7.htm" class="mainmenu"> Character Editing</a></strong></li>
+			<li><strong><a href="talk8.htm" class="mainmenu"> Mob Searches</a></strong></li>
+			<li><strong><a href="talk9.htm" class="mainmenu"> Account Adjustment</a></strong></li>
+			<li><strong><a href="talk10.htm" class="mainmenu"> Server Statistics</a></strong></li>
+			<li><strong><a href="talk11.htm" class="mainmenu"> Shops and Pets</a></strong></li>
+			<li><strong><a href="talk12.htm" class="mainmenu"> Database Utils</a></strong></li>
+			<li><strong><a href="talk13.htm" class="mainmenu"> Recipe Calculator</a></strong></li>
+			<hr>
+			<li><strong><a href="techt.htm" class="mainmenu"> Tech Talk</a></strong></li>
+			<li><strong><a href="quest1.htm" class="mainmenu"> Simple Quest Creation Guide</a></strong></li>
+			<li><strong><a href="statement.htm" class="mainmenu"> Statement of Liability</a></strong></li>
+			</ol>
+		</td></tr></table>
+		</td><td width="100%" valign="top"><img src="simages/blank.gif" width="1" height="100">
+		<h2 class="dropmain">Features</h2>
+		<h2 class="dochead">Direct Database Feed</h2>	
+		<p class="main">The drop calc feeds directly from the game database.  Thus, the figures are live for whatever server it is set up for.</p>
+		<p class="dropmain">&nbsp;</p>
+		<h2 class="dochead">Access Control</h2>	
+		<p class="main">Varying access levels allow the drop calc to be powerful, but also reasonably secure so that everyday users can find out the information on the drops they require, GM's can kick, ban, chat and all that, while admins can reboot the server or other things like that.  The system has been created to allow flexibility in dropcalc roles and security.  More information on this in the Initial Setup section.</p>
+		<p class="dropmain">&nbsp;</p>
+		<h2 class="dochead">Banning and unbanning players</h2>	
+		<p class="main">GM's can ban and kick characters and accounts, but only administrators can ban other GM's and administrators.  Accounts which are online at the time of being banned, won't notice the effect until after the account is re-logged.  The gameserver won't automatically kick them for you.  Also, if a character is online at the time of the character ban, then when the character is de-logged, the gameserver overwrites the ban, so a character has to be kicked before being banned.  Note that if an admin bans a GM character, unbanning them will return the character to being a normal player.</p>
+		<p class="dropmain">&nbsp;</p>
+		<h2 class="dochead">Adding and deleting items</h2>	
+		<p class="main">At the moment, items can be given to a player who is on or off line, but they can only be removed when the player is off line.  If they are added with the user on-line, then their inventory must have sufficient free slots to take the items.  If off-line when adding, then it doesn't matter.  Adding items with the user on line uses the telnet system, and off line is done by database editing.  Deleting them is done by removing the items from the database, which has no effect unless the user is off-line.  Similar with skills, they can be deleted from the database at any time, but if the player is online at the time, then the gameserver won't take any notice of the database changes until the players character re-logs.  This explains why certain options are only available at certain times.</p>
+		<p class="dropmain">&nbsp;</p>
+		<h2 class="dochead">Teleporting</h2>	
+		<p class="main">Teleporting via the drop calc can only be done when the player is off-line.  They can be teleported to either Giran, or the home town for their race.  This was included to help out with a bug where a player tries to log on to their character and immediately gets a client crash.  It seems to be down to the place they were in when they logged out, so teleporting their character to another location lets them log in again.</p>
+		<p class="dropmain">&nbsp;</p>
+		<h2 class="dochead">Chatting</h2>	
+		<p class="main">As long as the file system and telnet has been set up correctly, then the system can watch the global server chat, and also individual players chat.  The short chat views automatically refresh every five seconds, so you can watch their chat live.  The button at the bottom will allow you to chat to the player, but you won't see your admin whisper chat to them appear in the window.  Also, things like single quotes come out wrong on their screens, so be careful over what you type.</p>
+		<p class="dropmain">&nbsp;</p>
+		<h2 class="dochead">Clan Item Search</h2>	
+		<p class="main">Players are able to see the details statistics and inventories of other characters where they have a link via a clan membership.  This enables them to track down an ingredient that they need without having to go quest them if an ally already has what they need.  It also enables the GM's to track the usage of items and see who has them (and can change/delete them if required) to allow a little more control over cheating, or to assist in events such as relay races, etc.</p>
+		<p class="dropmain">&nbsp;</p>
+		<h2 class="dochead">Freight Location</h2>	
+		<p class="main">Inventories distinguish in which town freight has been left.  The server defaults are that freight stays in the warehouse in which it was left, and I know of few servers that change this feature, so the system will let you know which warehouse the freight was left in.  If you happen to see a warehouse titled, "loc x," then it is a new warehouse that the drop calc doesn't know about yet, so look in the newer warehouses.</p>
+		<p class="dropmain">&nbsp;</p>
+		<h2 class="dochead">Who's Online</h2>	
+		<p class="main">The online list is sorted by character level.  GM's get to see another number; that number is the combined level of all the characters linked to that account.  This helps identify people who are new to the server, (and can be welcomed aboard or watched) as opposed to long serving players who have just created another character.  The on-line list also refreshes itself every 30 seconds.</p>
+		<center><img src="online.jpg"></center>
+		<p class="dropmain">&nbsp;</p>
+		<h2 class="dochead">Trusted Players</h2>	
+		<p class="main">The system keeps a list of characters that are deemed to be trusted, for example dwarves that won't just laugh and run off with your mats and adena when you want a trade; or other characters who you can request for help in leveling or going after a mob.</p>
+		<p class="dropmain">&nbsp;</p>
+		<h2 class="dochead">Upgrading</h2>	
+		<p class="main">The drop calc now has the ability to record changes made in the database, when measured against a reference point, so that changes made, such as mob additions and deletions, are more easily portable.  It can also backup and restore the key tables, so that it is much easier to save your characters, their pets, items, etc. and then replay them after an upgrade.  The system is also flexible enough to look at the tables columns, so that if the datapack project adds more columns, it won't matter so much.  (more information in the Database Compare document)</p>
+		<p class="dropmain">&nbsp;</p>
+		<center><img src="../simages/bg_foot.gif"></center>
+		
+	</td></tr></table>
+</td><td><img src="../simages/blank.gif" width="20" height="1"></td></tr></table>
+<!-- End Content -->
+</body>
+</html>

@@ -1,0 +1,90 @@
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" title="style01.css" media="screen" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<title>Michelle's L2J Dropcalc</title>
+</head>
+<body>
+<table width="100%" height="100%" border="0" class="back1" cellpadding="0" cellspacing="0"><tr><td>
+	<table width="100%" height="100%" border="0" class="back2" cellpadding="0" cellspacing="0"><tr><td valign="top">
+		<table width="220" border="0" cellpadding="0" cellspacing="0"><tr><td><img src="simages/blank.gif" width="1" height="160"></td></tr><tr><td>
+			<ol>
+			<li><strong><a href="index.htm" class="mainmenu"> Home</a></strong></li>
+			<li><strong><a href="overv.htm" class="mainmenu"> Overview</a></strong></li>
+			<li><strong><a href="feat.htm" class="mainmenu"> Features</a></strong></li>
+			<li><strong><a href="setup.htm" class="mainmenu"> Initial Setup</a></strong></li>
+			<li><strong><a href="setup2.htm" class="mainmenu"> Setup Options - Dropcalc Settings</a></strong></li>
+			<li><strong><a href="setup3.htm" class="mainmenu"> Setup Options - Technical Settings</a></strong></li>
+			<li><strong><a href="setup4.htm" class="mainmenu"> Setup Options - Cross Gameserver Settings</a></strong></li>
+			<li><strong><a href="updating.htm" class="mainmenu"> Updating</a></strong></li>
+			<li><strong><a href="telnet.htm" class="mainmenu"> Telnet System</a></strong></li>
+			<li><strong><a href="chat.htm" class="mainmenu"> Chat System</a></strong></li>
+			<li><strong><a href="dbmain.htm" class="mainmenu"> Database Compare</a></strong></li>
+			<li><strong><a href="skin.htm" class="mainmenu"> Changing the skin</a></strong></li>
+			<li><strong><a href="automation.htm" class="mainmenu"> Automated systems</a></strong></li>
+			<li><strong><a href="routing.htm" class="mainmenu"> Routing traffic</a></strong></li>
+			<hr>
+			<center><p class="main"><strong>GM Talkthrough</strong></p></center>
+			<li><strong><a href="talk1.htm" class="mainmenu"> Logon Page</a></strong></li>
+			<li><strong><a href="talk2.htm" class="mainmenu"> Search Basics</a></strong></li>
+			<li><strong><a href="talk3.htm" class="mainmenu"> First Menu</a></strong></li>
+			<li><strong><a href="talk4.htm" class="mainmenu"> Server Tools</a></strong></li>
+			<li><strong><a href="talk5.htm" class="mainmenu"> Log and Console files</a></strong></li>
+			<li><strong><a href="talk6.htm" class="mainmenu"> Item Search</a></strong></li>
+			<li><strong><a href="talk7.htm" class="mainmenu"> Character Editing</a></strong></li>
+			<li><strong><a href="talk8.htm" class="mainmenu"> Mob Searches</a></strong></li>
+			<li><strong><a href="talk9.htm" class="mainmenu"> Account Adjustment</a></strong></li>
+			<li><strong><a href="talk10.htm" class="mainmenu"> Server Statistics</a></strong></li>
+			<li><strong><a href="talk11.htm" class="mainmenu"> Shops and Pets</a></strong></li>
+			<li><strong><a href="talk12.htm" class="mainmenu"> Database Utils</a></strong></li>
+			<li><strong><a href="talk13.htm" class="mainmenu"> Recipe Calculator</a></strong></li>
+			<hr>
+			<li><strong><a href="techt.htm" class="mainmenu"> Tech Talk</a></strong></li>
+			<li><strong><a href="quest1.htm" class="mainmenu"> Simple Quest Creation Guide</a></strong></li>
+			<li><strong><a href="statement.htm" class="mainmenu"> Statement of Liability</a></strong></li>
+			</ol>
+		</td></tr></table>
+		</td><td width="100%" valign="top"><img src="simages/blank.gif" width="1" height="100">
+		<h2 class="dropmain">Detailed Setup</h2>
+		<h2 class="dochead">Technical Settings</h2>	
+		<p class="main">Technical settings are concerned more with how the system behaves on a deeper level.</p>
+		<table><tr><td><p class="main"><img src="set6.jpg" alt="" width="360" height="469" border="0" align="left">Account safe is a mechanism for safeguarding database maintenance routines when you have more than one gameserver on a logon server.  As part of the server tools, there is an option to clean up the database.  One of these options is to delete accounts which have no characters.  Obviously, in a multi-gameserver environment, it is feasible that an account has characters on one server and not the other.  Setting this to on, is a way of preventing such accounts from being deleted.</p>
+		<p class="main">Check for dual boxing will show any GM, in the Who's Online, any IP address which has logged on more than one account, or any account which has more than one character logged on simultaniously.  These accounts show up in red to a GM when viewing the Who's Online.  It is possible for an IP address, or an account, to be flagged to the system to be a legitimate dual boxer, however.</p>
+		<p class="main">Low Graphics Allow is an option degigned to save time and bandwidth when a GM is viewing the chat or sever logs. It then uses the alternative style sheet to load much lower resolution graphics.</p>
+		<p class="main">Bot Scan Ban is a function which is tied in to the chat logging, and who's online systems.  If enabled, then whenever someone refreshed one of these pages, then a checking routine is triggered.  Any character with a maxhp or maxmp is immediately kicked and deleted from the system.  The players account is not altered.  Any GM character found on line is checked; firstly that it belongs to a GM account, and then the GM account is checked against the knightdrop tables, to ensure that they are a legitimate GM and have not achieved that status by hacking.  If they are found to be not legitimate GM's, then all characters relating to that account are kicked, and all the characters, and the account, are banned.</p>
+		<p class="main">Prevent Banned IP Re-registering.  If an account has been banned, then this option will prevent anyone from the same IP from registering again, using the dropcalcs own registration system.  In the case of Internet cafe's, then an offending account would have to be deleted in order for others to register fresh accounts.</p>
+		<p class="main">Time Zone - The statistics graphing system needs to know the servers time zone.  This setting tells the dropcalc what time zone the gameserver is in.  It is done this way, rather than taking the time zone from the server, because the dropcalc can be on a different server, in a different time zone, to the gameserver.</p>
+		<p class="main">Show Country Information depends on whether you have loaded the optional country IP information tables.  If set to yes and the tables are loaded, then the dropcalc will show GM's in the Who's Online, the country of the IP address that is on the game server.</p>
+		<p class="main">Max username and password lengths apply to the dropcalcs registration system only.  There was once a bug after a server change, whereby account names greater than a certain length, were not being recognised.  It is recommended that you test your system before upping these figures.</p>
+		<p class="main">Ignoring enchanted items held by non-GM characters on GM accounts is related to the enchanted item checks that occur in the Server Tools.  If set to "no" then when you do a check for enchanted items, the system picks up enchanted items that are held by all non-GM characters, whether or not they are linked to GM accounts.  If set to yes, then the system takes a little longer, but it will only report enchanted items that are owned by non-GM characters that are only linked to non-GM accounts; basically saying that you don't care if your GM's have over-enchanted items on their standard play characters.</p>
+		</td></tr></table>
+		<hr>
+		<table><tr><td><p class="main"><img src="set7.jpg" alt="" width="258" height="405" border="0" align="left">These are the access level control numbers which determine what level of access accounts have in the dropcalc.  You will likely want to match these figures closely to your gameserver accounts permissions.</p>
+		<p class="main">The figures of most importance at the bottom figure, which is the point at which an account has GM access to the system.  The top figure is when they become a full administrator of all the dropcalc functions.  The various numbers in between control access levels to intermediary features.</p>
+		<p class="main">Basically, by adjusting these figures, you control who can do what in the dropcalc.</p>
+		</td></tr></table>
+		<hr>
+		<table><tr><td><p class="main"><img src="set8.jpg" alt="" width="422" height="596" border="0" align="left">Max Chars per account is a reference figure.  The L2 client has only been able to allow a maximum of seven characters per account.  If you transfer a character to an account that already has this number of characters, then the dropcalc will warn you of what is happening.  It won't stop you doing it, it will just warn you.</p>
+		<p class="main">L2 version is a number which controls the features of the character changer.  In L2-C5, there are five male hairstyles and seven female hairstyles for every race. Each race also has three face types.  This feature is for future proofing, so that you can tell the dropcalc the game version it is hooked up to.  It will then adjust itself accordingly.</p>
+		<p class="main">Token Expiry is the amount of time an account can be inactive on the dropcalc before it times out and the user has to re-login.  This figure is in minutes.</p>
+		<p class="main">The three drop rates for Adena, item and spoil haveto be set to mimick your server.  Because the server occasionally changes the location of the settings, that made it difficult for the dropcalc to ascertain where these settings were, and what they are set as.  Therefore you need to adjust these to match your server, so that the dropcalc can do the calculations correctly.</p>
+		<p class="main">Use Duplicate Item Graphics is useful if you have the knightduplicate table loaded.  It is a trade-off. If set to No, then the dropcalc will push down an individual graphic for each item it displays.  This increases the processing speed, but increases the bandwidth.  If set to Yes, then the dropcalc will attempt to look up the item icon in the duplicates database, and will only send a common icon, if it finds one.  This increases the processing time and calls to the database, but it can lower download times for large pages considerably.  It is your choice how you balance it.</p>
+		<p class="main">Default language sets the native language that the dropcalc will use when anyone enters it for the first time.</p>
+		<p class="main">Show online time for characters - this will cause the dropcalc to show the online time for characters and accounts, in the who's online and other character and account viewing screens.  Only GM's will see these figures.</p>
+		<p class="main">Showing the online time for IP addresses goes one stage further and requires more processing time.  This will show (in the who's online) all the on-line time recorded for all characters against that IP address.  In the case of Internet Cafes this figure will not make that much sense.</p>
+		<p class="main">The refresh rates for the who's online screen, the chat logs and the system logs deterimes the time, in seconds, before the screens will auto refresh.  The minimum refresh is 5 seconds for the logs, and 10 seconds for the who's online.</p>
+		<p class="main">The Online server population map can be either seen by GM's only, any logged on user, or anyone including guests.  The map shows the position of the currently logged on characters and will refresh just as the name version of the whos online.  Of course, it shows the last positions registered in the database so the positions shown could be out by at least five minutes.</p>
+		<p class="main">Nudging the crosses relates to the online and offline population maps.  If one cross is on top of another, then this "nudges" the cross to a position where it is as close to its original position as possible, but is not actually on top of another cross.  This enables the actual positions of parties to be seen more accurately, as otherwise a good number of people in the same area could simply end up being shown as just one cross.</p>
+		<p class="main">The showing of mob pictures can be turned on or off, if they are installed.  This helps reduce the bandwidth usage if a server is getting close to its allowance, without having to remove the picture files from the server.</p>
+		</td></tr></table>
+		<center><img src="../simages/bg_foot.gif"></center>
+		
+	</td></tr></table>
+</td><td><img src="../simages/blank.gif" width="20" height="1"></td></tr></table>
+<!-- End Content -->
+</body>
+</html>

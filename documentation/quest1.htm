@@ -1,0 +1,361 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" title="style01.css" media="screen" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<title>Michelle's L2J Dropcalc</title>
+</head>
+<body>
+<table width="100%" height="100%" border="0" class="back1" cellpadding="0" cellspacing="0"><tr><td>
+	<table width="100%" height="100%" border="0" class="back2" cellpadding="0" cellspacing="0"><tr><td valign="top">
+		<table width="220" border="0" cellpadding="0" cellspacing="0"><tr><td><img src="simages/blank.gif" width="1" height="160"></td></tr><tr><td>
+			<ol>
+			<li><strong><a href="index.htm" class="mainmenu"> Home</a></strong></li>
+			<li><strong><a href="overv.htm" class="mainmenu"> Overview</a></strong></li>
+			<li><strong><a href="feat.htm" class="mainmenu"> Features</a></strong></li>
+			<li><strong><a href="setup.htm" class="mainmenu"> Initial Setup</a></strong></li>
+			<li><strong><a href="setup2.htm" class="mainmenu"> Setup Options - Dropcalc Settings</a></strong></li>
+			<li><strong><a href="setup3.htm" class="mainmenu"> Setup Options - Technical Settings</a></strong></li>
+			<li><strong><a href="setup4.htm" class="mainmenu"> Setup Options - Cross Gameserver Settings</a></strong></li>
+			<li><strong><a href="updating.htm" class="mainmenu"> Updating</a></strong></li>
+			<li><strong><a href="telnet.htm" class="mainmenu"> Telnet System</a></strong></li>
+			<li><strong><a href="chat.htm" class="mainmenu"> Chat System</a></strong></li>
+			<li><strong><a href="dbmain.htm" class="mainmenu"> Database Compare</a></strong></li>
+			<li><strong><a href="skin.htm" class="mainmenu"> Changing the skin</a></strong></li>
+			<li><strong><a href="automation.htm" class="mainmenu"> Automated systems</a></strong></li>
+			<li><strong><a href="routing.htm" class="mainmenu"> Routing traffic</a></strong></li>
+			<hr>
+			<center><p class="main"><strong>GM Talkthrough</strong></p></center>
+			<li><strong><a href="talk1.htm" class="mainmenu"> Logon Page</a></strong></li>
+			<li><strong><a href="talk2.htm" class="mainmenu"> Search Basics</a></strong></li>
+			<li><strong><a href="talk3.htm" class="mainmenu"> First Menu</a></strong></li>
+			<li><strong><a href="talk4.htm" class="mainmenu"> Server Tools</a></strong></li>
+			<li><strong><a href="talk5.htm" class="mainmenu"> Log and Console files</a></strong></li>
+			<li><strong><a href="talk6.htm" class="mainmenu"> Item Search</a></strong></li>
+			<li><strong><a href="talk7.htm" class="mainmenu"> Character Editing</a></strong></li>
+			<li><strong><a href="talk8.htm" class="mainmenu"> Mob Searches</a></strong></li>
+			<li><strong><a href="talk9.htm" class="mainmenu"> Account Adjustment</a></strong></li>
+			<li><strong><a href="talk10.htm" class="mainmenu"> Server Statistics</a></strong></li>
+			<li><strong><a href="talk11.htm" class="mainmenu"> Shops and Pets</a></strong></li>
+			<li><strong><a href="talk12.htm" class="mainmenu"> Database Utils</a></strong></li>
+			<li><strong><a href="talk13.htm" class="mainmenu"> Recipe Calculator</a></strong></li>
+			<hr>
+			<li><strong><a href="techt.htm" class="mainmenu"> Tech Talk</a></strong></li>
+			<li><strong><a href="quest1.htm" class="mainmenu"> Simple Quest Creation Guide</a></strong></li>
+			<li><strong><a href="statement.htm" class="mainmenu"> Statement of Liability</a></strong></li>
+			</ol>
+		</td></tr></table>
+		</td><td width="100%" valign="top"><img src="simages/blank.gif" width="1" height="100">
+		<h2 class="dropmain">Simple Quest Creation Guide</h2>	
+		<p class="main">This is an account of changing the players chat, links and quests without using client hacks.  The actions done here were on a C4 server.</p>
+		<p class="main">First, I found two characters, 7407 and 12738.  I named the 7407 Emma, and the 12738 Mitch.  This was done in the NPC table, after checking that these characters didn't spawn anywhere else on the map.  Finding them wasn't too difficult with the drop calc.  In the mobs by level list, select the character type, and then set to list unspawned characters.</p>
+		<p class="main">The other thing was to change ServerSideName to "1" for these characters, so that the client would show my new name, rather than the generic name for the NPC, to the client.  It is important to note that using this option of overriding the generic character name, increases the amount of data sent to the client, and hence traffic, so if you start using this heavily, then it could impact performance.</p>
+		<p class="main">It was also important to note the "type" column.  In this case, they are both L2Npc.  That tells you where the HTML file should be located.  They are usually in the HTML folder of the gameserver/data folder.  L2Npc's are located in "default", while the other types have their own specific folders.</p>
+		<p class="main">In here, straightforward HTML can be put, starting with the characters NPC number, and finishing with the old DOS .htm instead of the full .html.</p>
+		<p class="main">The example html I created for Emma (7407.htm) was...</p>
+		<pre class="main">&lt;html>
+&lt;head>
+&lt;body>
+Emma:
+&lt;br>
+Oh, it is nice to meet a kindred spirit in this place.
+&lt;br>
+Do the tears show?  I have been crying, as I've been forbidden to see my true love, Mitch.&lt;br><br>He is a Royal Guard and is faithful to his duty.&lt;br>
+My life would be a little easier if I knew that he still thought of me, but I have no way of knowing that he still cares.&lt;br>
+If you see him on your travels, could you remember me to him please?
+&lt;/body>
+&lt;/html></pre>
+		<p class="main">... and this displayed the standard message.  Mitch's (12738.htm) was ...</p>
+		<pre class="main">&lt;html>
+&lt;head>
+&lt;body>
+Mitch:
+&lt;br>
+Halt!  Who goes there?
+&lt;br>
+Advance friend.  And how I need a friend right now.&lt;br><br>My duties have stopped me from seeing my darling Emma.  Not an hour goes by when I don't 
+think ofher, and I pray that she hasn't forgotten me.&lt;/br>
+I stand here outside the building, but I daren't go in, for if the Magister sees me, then she and I are in big trouble.&lt;br>
+** Sigh **&lt;br>
+I just wish I could get a message to her.
+&lt;/body>
+&lt;/html></pre>
+		<p class="main">After spawning the two characters at different locations and rebooting the server, the characters started to talk.</p>
+		<p class="main">As a means of doing special things, you can put the commands in a standard HTML link, within the character HTML like this ...</p>
+		<pre class="main">&lt;a action="bypass -h npc_%objectId%_Chat 1">Who are you?&lt;/a></pre>
+		<p class="main">This would trigger off an html file the same as the npc id, but with a -1 between the id and the html.  In this case, it would be 7407-1.htm and would be a fresh chat in its own right.  Using this technique, you could create pages of information for the player to trawl through.</p>
+		<pre class="main">&lt;a action="bypass -h npc_%objectId%_goto 394" msg="811;Out of the castle">Out of the castle&lt;/a><br> </pre>
+		<p class="main">The above code triggers a teleport.  This requires the teleport location to be present in the teleport table in the database.  It is thus possible to set up a completely different set of teleport locations with various prices.  The price listed in the table is deducted from the player on teleporting.</p>
+		<p class="main">For a list of the commands you can use, just take a look at the admin sections.  Note that including things via the htm chats, however, doesn't do any checking of things.  The only way you can restrict things is to use the quest scripts to check for various conditions.</p>
+		<pre class="main">&lt;a action="bypass -h npc_%objectId%_Quest">Quest<&lt;a></pre>
+		<p class="main">This triggers the quest search for the character, and that requires delving in to the jython script ...</p>
+		<p class="main">An interesting one to watch is that the teleporters transport to the Monster Track Derby.  The &lt;A> tag triggers off quest 1101 which you will find in the jscript/teleports directory.  A quick look at the code reveals ...</p>
+		<pre class="main">   # Giran Castle Town
+   if npcId == CLARISSA: 
+     st.player.teleToLocation(12661,181687,-3560)
+     st.setState(STARTED)
+     st.set("id","4")     
+     return</pre>
+		<p class="main">... which makes a record in the database tables for that player that they have teleported to the track from id 4.  When the quest is reversed, the  ID is used to trigger the teleport code to send them back where they came from.</p>
+		<pre class="main">   # back to Gludio Castle Town
+   if npcId == RACE_MANAGER and int(st.get("id")) == 2:
+     st.player.teleToLocation(-12672,122776,-3116)
+     st.setState(COMPLETED)
+     st.exitQuest(1)
+     return</pre>
+		<p class="main">The character_quests table is where all this data is stored. Each quest can record its own details in here, "var" stores the id of the variable, and "value" stores the variable itself.  </p>
+		<p class="main">You also need to look at the file __init__.py which is at the root of the quests.  In here, every quest to be loaded is referenced.  If you make a quest, it has to be in this file.  Don't worry, though, we're going to go through the whole thing step by step.</p>
+		<p class="main">First up, some file creation ...</p>
+		<p class="main">In data/html/default .. create the following files and put these contents in them ...</p>
+		<p class="main">7407.htm</p>
+		<pre class="main">&lt;html>
+&lt;head>
+&lt;body>
+Emma:
+&lt;br>
+Oh, it is nice to meet a kind spirit in this place.
+&lt;br>
+Pardon? Oh dear, do the tears show that much?  I have been crying, as I've been forbidden to see my true love, Mitch.&lt;br><br>He is a Royal Guard and is 
+faithful to his duty.&lt;br>
+My life would be a little easier if I knew that he still thought of me, but I have no way of knowing that he still cares.&lt;br>
+If you see him on your travels, could you remember me to him please?&lt;br>
+&lt;a action="bypass -h npc_%objectId%_Quest">Quest&lt;/a>
+&lt;/body>
+&lt;/html></pre>
+		<p class="main">12738.htm</p>
+		<pre class="main">&lt;html>
+&lt;head>
+&lt;body>
+Mitch:
+&lt;br>
+Halt!  Who goes there?
+&lt;br>
+Advance friend.  And how I need a friend right now.&lt;br><br>My duties have stopped me from seeing my darling Emma.&lt;br><br>Not an hour goes by when I don't think of her, and I pray that she hasn't forgotten me.&lt;/br>
+I stand here outside the building, but I daren't go in, for if the Magister sees me, then she and I are in big trouble.&lt;br>
+** Sigh **&lt;br>
+I just wish I could get a message to her.&lt;br>
+&lt;a action="bypass -h npc_%objectId%_Quest">Quest&lt;/a>
+&lt;/body>
+&lt;/html></pre>
+		<p class="main">Now go to the data/jscript directory and create a directory called 888_MitchAndEmma noting the lack of spaces.  Then grab the __init__$py.class 
+and __init__.py files from another quest directory and put them in here.</p>
+		<p class="main">In the jscript directory itself is another __init__.py file.  Edit this and go to the end.  Put '888_MitchAndEmma', at the apropriate place in the list.  This file is responsible for which quests get read in to the server on start up.</p>
+		<p class="main">Now go in to the 888_MitchAndEmma directory you just created and make the following files ...</p>
+		<p class="main">7407-01.htm</p>
+		<pre class="main">&lt;html>
+&lt;head>
+&lt;body>
+Emma:&lt;br>
+A book?  And you say from my darling Mitch?  Well, it is true that the book is to my taste, and Mitch would know that...&lt;br>
+Oh, thank you.  It does my heart wonders to know that he cares for me so.&lt;br>
+I wrote him this letter some time ago, and have been hoping for a way to get it to him.&lt;br><br>As you seem to know where to find him, I would be so 
+grateful if you could pass these words of my love to him.&lt;br>
+Thank you so much, kind adventurer.
+&lt;/body>
+&lt;/html></pre>
+		<p class="main">12738-01.htm</p>
+		<pre class="main">&lt;html>
+&lt;head>
+&lt;body>
+Mitch:&lt;br>
+As I follow Royalty wherever they go, I travel to many cities and towns.&lt;br><br>I bought this book for her, as I think she will like it. Could you give it to her please and tell her of my love?&lt;br>
+&lt;a action="bypass -h Quest 888_MitchAndEmma 12738-02.htm">Say you will do the favor&lt;/a> 
+&lt;/body>
+&lt;/html></pre>
+		<p class="main">12738-02.htm</p>
+		<pre class="main">&lt;html>
+&lt;head>
+&lt;body>
+Mitch:&lt;br>
+Oh, thank you!  Thank you!  Here is the book.  If you manage to give it to Emma, I will be a very happy man.
+&lt;/body>
+&lt;/html></pre>
+		<p class="main">12738-03.htm</p>
+		<pre class="main">&lt;html>
+&lt;head>
+&lt;body>
+Mitch:&lt;br>
+Oh, how wonderful to hear from her, and to know she still loves me so.&lt;br>
+Thank you for your help, adventurer.  Here, take this as a reward.  May it serve you well.
+&lt;/body>
+&lt;/html></pre>
+		<p class="main">Now for the main event ... Open the __init__.py file that you copied in here earlier, and replace the entire contents with this ...</p>
+		<pre class="main"># Demo script by Michelle Knight Version 1
+import sys
+from net.sf.l2j.gameserver.model.quest import State
+from net.sf.l2j.gameserver.model.quest import QuestState
+from net.sf.l2j.gameserver.model.quest.jython import QuestJython as JQuest
+
+#NPCs 
+MITCH  = 12738
+EMMA  = 7407
+
+#ITEMS 
+ROMANCE_NOVEL     = 691
+SEALED_SCROLL 	= 767
+ 
+#REWARD 
+ENCHANT_ARMOR = 6578
+ 
+class Quest (JQuest) :
+
+ def __init__(self,id,name,descr): JQuest.__init__(self,id,name,descr)
+
+ def onEvent (self,event,st) :
+   htmltext = event 
+   if event == "12738-02.htm" : 
+     st.set("cond","1") 
+     st.set("id","1") 
+     st.setState(STARTED) 
+     st.playSound("ItemSound.quest_accept") 
+     if st.getQuestItemsCount(ROMANCE_NOVEL) == 0 : 
+       st.giveItems(ROMANCE_NOVEL,1) 
+   return htmltext 
+
+ def onTalk (Self,npc,st):
+   htmltext = "&lt;html>&lt;head>&lt;body>Greetings, Adventurer.  I trust your huntings are going well.&lt;/body>&lt;/html>" 
+   npcId = npc.getNpcId()
+   id = st.getState()
+   if id == CREATED :
+     st.setState(STARTING)
+     st.set("cond","0")
+     st.set("onlyone","0")
+     st.set("id","0")
+ 
+   cond = st.getInt("cond") 
+   onlyone = st.getInt("onlyone") 
+   ItemsCount_RN = st.getQuestItemsCount(ROMANCE_NOVEL) 
+   ItemsCount_SS = st.getQuestItemsCount(SEALED_SCROLL)  
+ 
+   if npcId == MITCH and cond == 0 and ItemsCount_RN == 0 and ItemsCount_SS == 0: 
+       htmltext = "12738-01.htm" 
+   if npcId == EMMA and cond == 1 and ItemsCount_RN == 1 and ItemsCount_SS == 0: 
+       st.giveItems(SEALED_SCROLL,1) 
+       st.takeItems(ROMANCE_NOVEL,-1) 
+       htmltext = "7407-01.htm" 
+   if npcId == MITCH and cond == 1 and ItemsCount_RN == 0 and ItemsCount_SS == 1: 
+       st.giveItems(ENCHANT_ARMOR,1) 
+       st.takeItems(SEALED_SCROLL,-1) 
+       st.set("cond","0") 
+       st.set("onlyone","1") 
+       st.setState(COMPLETED) 
+       st.playSound("ItemSound.quest_finish") 
+       htmltext = "12738-03.htm" 
+   return htmltext
+
+QUEST     = Quest(888,"888_MitchAndEmma","Mitch and Emma") 
+CREATED   = State('Start',     QUEST) 
+STARTING  = State('Starting',  QUEST) 
+STARTED   = State('Started',   QUEST) 
+COMPLETED = State('Completed', QUEST) 
+
+QUEST.setInitialState(CREATED)
+QUEST.addStartNpc(MITCH) 
+
+STARTING.addTalkId(MITCH) 
+STARTED.addTalkId(EMMA) 
+
+STARTED.addQuestDrop(MITCH,ROMANCE_NOVEL,1) 
+STARTED.addQuestDrop(EMMA,SEALED_SCROLL,1) 
+
+
+print "importing quests: 888: Mitch and Emma"
+</pre>
+		<p class="main">... that should be the quest configured and working.  You'll have to restart your server for the quest to be available.</p>
+		<p class="main">With one instance of each character spawned in the world and the quest running, the quest should run.  As you can see, it is a very basic quest designed to get you used to writing a quest.</p>
+		<p class="main">As the html is easy, here is a breakdown of the jython used to create the action ...</p>
+		<p class="main">This first section is the import area, and also where we set up constant variables.  Although you can do without the constants if you want to, it is highly recommended that you write the script this way.  It makes it much easier to debug should something go wrong, and also easier to change if any of the ID's change for whatever reason.</p>
+		<pre class="main"># Demo script by Michelle Knight Version 1
+import sys
+from net.sf.l2j.gameserver.model.quest import State
+from net.sf.l2j.gameserver.model.quest import QuestState
+from net.sf.l2j.gameserver.model.quest.jython import QuestJython as JQuest
+
+#NPCs 
+MITCH  = 12738
+EMMA  = 7407
+
+#ITEMS 
+ROMANCE_NOVEL     = 691
+SEALED_SCROLL 	= 767
+ 
+#REWARD 
+ENCHANT_ARMOR = 6578</pre>
+		<p class="main">This is the start of the code proper.  Standard definitions that won't change, and there is little to understand about them unless you are programming server-side.</p>
+		<pre class="main">class Quest (JQuest) :
+
+ def __init__(self,id,name,descr): JQuest.__init__(self,id,name,descr)</pre>
+		<p class="main">This is our first check, and it is an event, rather than a condition check.  Although it is possible to code this a number of ways, it is sometimes easier to do this.</p>
+		<p class="main">The check is for the event being 12738-02.htm - in other words, if the script has been run from that htm file, then the player has clicked on the link to accept the quest.  Apropriately, we start the quest running, make the basic changes in the quest tables, play the quest accepted music to the player, and give them the romance novel.</p>
+		<pre class="main"> def onEvent (self,event,st) :
+   htmltext = event 
+   if event == "12738-02.htm" : 
+     st.set("cond","1") 
+     st.set("id","1") 
+     st.setState(STARTED) 
+     st.playSound("ItemSound.quest_accept") 
+     if st.getQuestItemsCount(ROMANCE_NOVEL) == 0 : 
+       st.giveItems(ROMANCE_NOVEL,1) 
+   return htmltext </pre>
+		<p class="main">The standard quests run around how many of a certain item that a player has in their inventory.  They do have the option of binning quest items, but they can not trade or sell them.</p>
+		<p class="main">This is the talk trigger.  Not that much different from the code above, but it is more general and statements which are conditional on item locations are normally coded here.  Note that we are also marking the quest as starting, and are finding out how many of the novel and the scroll that the player has in their inventory.  Note the setting of the htmltext variable.  If the conditional statements in the next block don't actually turn out something usefull, then the player will at least get this standard text.</p>
+		<pre class="main"> def onTalk (Self,npc,st):
+   htmltext = "&lt;html>&lt;head>&lt;body>Greetings, Adventurer.  I trust your huntings are going well.&lt;/body>&lt;/html>" 
+   npcId = npc.getNpcId()
+   id = st.getState()
+   if id == CREATED :
+     st.setState(STARTING)
+     st.set("cond","0")
+     st.set("onlyone","0")
+     st.set("id","0")
+ 
+   cond = st.getInt("cond") 
+   onlyone = st.getInt("onlyone") 
+   ItemsCount_RN = st.getQuestItemsCount(ROMANCE_NOVEL) 
+   ItemsCount_SS = st.getQuestItemsCount(SEALED_SCROLL)  </pre>
+		<p class="main">The script runs through a number of conditions, based on the npcid that the player is talking to, and what they have in their inventory.  That is what triggers certain responses.  If you read them through in turn, you can determine the play through of the quest.  YOu can also see the playing of the quest finish music as well as the final removal of the scroll and the giving of the armor enchant.</p>
+		<pre class="main">    if npcId == MITCH and cond == 0 and ItemsCount_RN == 0 and ItemsCount_SS == 0: 
+       htmltext = "12738-01.htm" 
+   if npcId == EMMA and cond == 1 and ItemsCount_RN == 1 and ItemsCount_SS == 0: 
+       st.giveItems(SEALED_SCROLL,1) 
+       st.takeItems(ROMANCE_NOVEL,-1) 
+       htmltext = "7407-01.htm" 
+   if npcId == MITCH and cond == 1 and ItemsCount_RN == 0 and ItemsCount_SS == 1: 
+       st.giveItems(ENCHANT_ARMOR,1) 
+       st.takeItems(SEALED_SCROLL,-1) 
+       st.set("cond","0") 
+       st.set("onlyone","1") 
+       st.setState(COMPLETED) 
+       st.playSound("ItemSound.quest_finish") 
+       htmltext = "12738-03.htm" 
+   return htmltext</pre>
+		<p class="main">We finish with some more statements which, I believe, are used by the server when it initially loads the quest.  Note the print statement; it is what is seen in the server console when the script is loaded during startup time.</p>
+		<pre class="main">QUEST     = Quest(888,"888_MitchAndEmma","Mitch and Emma") 
+CREATED   = State('Start',     QUEST) 
+STARTING  = State('Starting',  QUEST) 
+STARTED   = State('Started',   QUEST) 
+COMPLETED = State('Completed', QUEST) 
+
+QUEST.setInitialState(CREATED)
+QUEST.addStartNpc(MITCH) 
+
+STARTING.addTalkId(MITCH) 
+STARTED.addTalkId(EMMA) 
+
+STARTED.addQuestDrop(MITCH,ROMANCE_NOVEL,1) 
+STARTED.addQuestDrop(EMMA,SEALED_SCROLL,1) 
+
+print "importing quests: 888: Mitch and Emma" </pre>
+		<p class="main">If you find that there is an error in your code, then it will be reported in the server console screen.  When initially writing quests, it is therefore very advisable to have a test server handy that you can reboot at will.  You don't want to be pulling these kind of tricks on a live game server; the population would get quite narked very quickly.</p>
+		<p class="main">Another hint; look at the code where Emma takes the romance novel and gives the sealed scroll.  I've got it the wrong way around.  Of course, the code works, but from the players side it is best if you take the items first, and give the items last.  It looks better in the players chat window and it is slightly less confusing.  Play the quest yourself and you will see what I mean by this.</p>
+		<p class="main">In the C4 database, you can change the idTemplate to whatever you wish.  The character will still behave as normal.  Using this technique, you can use almost any existing NPC slot that is vanant and hasn't got a spawn in the game.  By changing Emma's idTemplate to 7410, she becomes a Lizardman on a server reboot.  Then, by changing the "type" to L2Monster and rebooting again, you can turn her in to an actively killable creature.</p>
+		<p class="main">&nbsp;</p>
+		<center><img src="../simages/bg_foot.gif"></center>
+		
+	</td></tr></table>
+</td><td><img src="../simages/blank.gif" width="20" height="1"></td></tr></table>
+<!-- End Content -->
+</body>
+</html>
